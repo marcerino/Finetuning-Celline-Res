@@ -1,0 +1,18 @@
+Running array task 0 with 0 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+############################BRANCH TEST################################
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Extracting sample embeddings
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 1444, in main
+    elif finetune_dataset is not None:
+         ^^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'finetune_dataset' where it is not associated with a value

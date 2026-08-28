@@ -1,0 +1,16 @@
+method,var,variable_type,metric,value
+RandomForestClassifier,uberon_tissue,categorical,balanced_acc,0.37577275574070984
+RandomForestClassifier,uberon_tissue,categorical,f1_score,0.3709671889929851
+RandomForestClassifier,uberon_tissue,categorical,kappa,0.3752975729800795
+RandomForestClassifier,uberon_tissue,categorical,average_auroc,0.8556926108203612
+RandomForestClassifier,uberon_tissue,categorical,average_aupr,0.4830434704866777
+SVMClassifier,uberon_tissue,categorical,balanced_acc,0.07083779204565721
+SVMClassifier,uberon_tissue,categorical,f1_score,0.028234752938768
+SVMClassifier,uberon_tissue,categorical,kappa,0.011107167183108113
+SVMClassifier,uberon_tissue,categorical,average_auroc,0.3301160570946128
+SVMClassifier,uberon_tissue,categorical,average_aupr,0.07728941540782855
+XGBoostClassifier,uberon_tissue,categorical,balanced_acc,0.17222709857845875
+XGBoostClassifier,uberon_tissue,categorical,f1_score,0.18335435855613436
+XGBoostClassifier,uberon_tissue,categorical,kappa,0.14040713110161263
+XGBoostClassifier,uberon_tissue,categorical,average_auroc,0.7871030386291136
+XGBoostClassifier,uberon_tissue,categorical,average_aupr,0.3860186259039275

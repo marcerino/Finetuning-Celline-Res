@@ -1,0 +1,953 @@
+Running array task 1 with  75 samples based on sl-akali-p-cs2
+[rank: 0] Seed set to 42
+[INFO] Using device: cuda
+[INFO] Device name: Tesla P40
+[INFO] Available CUDA devices: 1
+
+[INFO] ================= Importing Data =================
+[INFO] Validating data folders...
+
+[INFO] ----------------- Reading Data ----------------- 
+[INFO] Importing /data/local/mgiller/atlas_tissue_representation/Data/75_FinetuneSamples_split/train/clin.csv...
+[INFO] Importing /data/local/mgiller/atlas_tissue_representation/Data/75_FinetuneSamples_split/train/gex.csv...
+
+[INFO] ----------------- Reading Data ----------------- 
+[INFO] Importing /data/local/mgiller/atlas_tissue_representation/Data/75_FinetuneSamples_split/test/clin.csv...
+[INFO] Importing /data/local/mgiller/atlas_tissue_representation/Data/75_FinetuneSamples_split/test/gex.csv...
+
+[INFO] ----------------- Checking for problems with the input data ----------------- 
+[INFO] Data structure is valid with no errors or warnings.
+
+[INFO] ----------------- Processing Data (train) ----------------- 
+
+[INFO] ----------------- Cleaning Up Data ----------------- 
+
+[INFO] working on layer:  gex
+[INFO] Number of NA values:  0
+[INFO] DataFrame gex - Removed 188 features.
+[INFO] DataFrame gex - Removed 0 samples (0.00%).
+[INFO] Implementing feature selection using laplacian score for layer: gex with  19028 features  and  75  samples 
+[INFO] No feature selection applied. Returning original matrix. Demanded # of features is  larger than existing number of features
+
+[INFO] ----------------- Processing Data (test) ----------------- 
+
+[INFO] ----------------- Cleaning Up Data ----------------- 
+
+[INFO] working on layer:  gex
+[INFO] Number of NA values:  0
+[INFO] DataFrame gex - Removed 193 features.
+[INFO] DataFrame gex - Removed 0 samples (0.00%).
+
+[INFO] ----------------- Harmonizing Data Sets ----------------- 
+
+[INFO] ----------------- Finished Harmonizing ----------------- 
+
+[INFO] ----------------- Normalizing Data ----------------- 
+
+[INFO] ----------------- Normalizing Data ----------------- 
+[INFO] Training Data Stats:  {'feature_count in: gex': 18946, 'sample_count': 75}
+[INFO] Test Data Stats:  {'feature_count in: gex': 18946, 'sample_count': 1087}
+[INFO] Merging Feature Logs...
+[INFO] Data import successful.
+Tuning Progress:   0%|          | 0/100 [00:00<?, ?it/s]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │ 92.6 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │ 11.1 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │ 11.1 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │ 92.1 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  3.4 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 184 M                                                         
+Non-trainable params: 0                                                         
+Total params: 184 M                                                             
+Total estimated model params size (MB): 738.607                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 15. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 32. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+Epoch 65/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.804   
+                                                              uberon_tissue:    
+                                                              0.522 val_loss:   
+                                                              2.617 train_loss: 
+                                                              1.335             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │     0.865592896938324     │
+│       uberon_tissue       │    1.7640817165374756     │
+│         val_loss          │    2.6296746730804443     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   0%|          | 0/100 [00:20<?, ?it/s, Iteration=1, Best Loss=2.63]Tuning Progress:   1%|          | 1/100 [00:20<34:36, 20.98s/it, Iteration=1, Best Loss=2.63]GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 0 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(67), 'hidden_dim_factor': 0.3001125833417066, 'supervisor_hidden_dim': np.int64(11), 'lr': 0.0020034427927560746, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  108 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │  4.6 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │  4.6 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  108 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │    962 │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 216 M                                                         
+Non-trainable params: 0                                                         
+Total params: 216 M                                                             
+Total estimated model params size (MB): 866.488                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 68/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.788   
+                                                              uberon_tissue:    
+                                                              1.302 val_loss:   
+                                                              3.152 train_loss: 
+                                                              2.056             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.0329991579055786     │
+│       uberon_tissue       │    2.0573747158050537     │
+│         val_loss          │     3.090373992919922     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   1%|          | 1/100 [00:43<34:36, 20.98s/it, Iteration=2, Best Loss=2.63]Tuning Progress:   2%|▏         | 2/100 [00:43<35:47, 21.91s/it, Iteration=2, Best Loss=2.63]GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 1 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(121), 'hidden_dim_factor': 0.2002336297523043, 'supervisor_hidden_dim': np.int64(32), 'lr': 0.0017177621112338384, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │ 72.8 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │ 14.8 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │ 14.8 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │ 72.4 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  4.5 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 145 M                                                         
+Non-trainable params: 0                                                         
+Total params: 145 M                                                             
+Total estimated model params size (MB): 580.709                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 32/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.833   
+                                                              uberon_tissue:    
+                                                              0.865 val_loss:   
+                                                              3.156 train_loss: 
+                                                              1.703             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.0041375160217285     │
+│       uberon_tissue       │     2.162235736846924     │
+│         val_loss          │    3.1663732528686523     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   2%|▏         | 2/100 [00:55<35:47, 21.91s/it, Iteration=3, Best Loss=2.63]Tuning Progress:   3%|▎         | 3/100 [00:55<27:55, 17.27s/it, Iteration=3, Best Loss=2.63]GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 2 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(19), 'hidden_dim_factor': 0.3574323980775168, 'supervisor_hidden_dim': np.int64(18), 'lr': 0.00012397420340784146, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  128 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │    380 │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │    380 │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  128 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │    700 │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 257 M                                                         
+Non-trainable params: 0                                                         
+Total params: 257 M                                                             
+Total estimated model params size (MB): 1,028.055                               
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 10/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 1.802   
+                                                              uberon_tissue:    
+                                                              2.417 val_loss:   
+                                                              4.078 train_loss: 
+                                                              4.216             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.5277550220489502     │
+│       uberon_tissue       │     2.51202130317688      │
+│         val_loss          │     4.03977632522583      │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   3%|▎         | 3/100 [01:10<27:55, 17.27s/it, Iteration=4, Best Loss=2.63]Tuning Progress:   4%|▍         | 4/100 [01:10<26:37, 16.64s/it, Iteration=4, Best Loss=2.63]GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 3 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(26), 'hidden_dim_factor': 0.38551580279992625, 'supervisor_hidden_dim': np.int64(17), 'lr': 0.009256818992066885, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  138 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │    702 │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │    702 │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  138 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │    781 │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 277 M                                                         
+Non-trainable params: 0                                                         
+Total params: 277 M                                                             
+Total estimated model params size (MB): 1,109.440                               
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 71/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 1.871   
+                                                              uberon_tissue:    
+                                                              0.110 val_loss:   
+                                                              3.189 train_loss: 
+                                                              1.607             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    2.0569679737091064     │
+│       uberon_tissue       │    1.1661080121994019     │
+│         val_loss          │    3.2230758666992188     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   4%|▍         | 4/100 [01:38<26:37, 16.64s/it, Iteration=5, Best Loss=2.63]Tuning Progress:   5%|▌         | 5/100 [01:38<32:49, 20.74s/it, Iteration=5, Best Loss=2.63]GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 4 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(92), 'hidden_dim_factor': 0.3351497755908629, 'supervisor_hidden_dim': np.int64(8), 'lr': 0.0076630826802558585, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  121 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │  8.6 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │  8.6 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  120 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │    904 │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 242 M                                                         
+Non-trainable params: 0                                                         
+Total params: 242 M                                                             
+Total estimated model params size (MB): 969.615                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 58/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 1.161   
+                                                              uberon_tissue:    
+                                                              1.128 val_loss:   
+                                                              3.294 train_loss: 
+                                                              2.288             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │     1.049630880355835     │
+│       uberon_tissue       │    2.2726216316223145     │
+│         val_loss          │    3.3222525119781494     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   5%|▌         | 5/100 [02:01<32:49, 20.74s/it, Iteration=6, Best Loss=2.63]Tuning Progress:   6%|▌         | 6/100 [02:01<33:41, 21.51s/it, Iteration=6, Best Loss=2.63]GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 5 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(18), 'hidden_dim_factor': 0.26926814768664475, 'supervisor_hidden_dim': np.int64(14), 'lr': 0.0023255572624036797, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │ 96.8 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │    342 │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │    342 │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │ 96.8 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │    534 │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 193 M                                                         
+Non-trainable params: 0                                                         
+Total params: 193 M                                                             
+Total estimated model params size (MB): 774.453                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 87/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.933   
+                                                              uberon_tissue:    
+                                                              1.020 val_loss:   
+                                                              2.986 train_loss: 
+                                                              1.968             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    0.9693359136581421     │
+│       uberon_tissue       │     2.048313856124878     │
+│         val_loss          │    3.0176496505737305     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   6%|▌         | 6/100 [02:25<33:41, 21.51s/it, Iteration=7, Best Loss=2.63]Tuning Progress:   7%|▋         | 7/100 [02:25<34:08, 22.03s/it, Iteration=7, Best Loss=2.63]GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 6 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(35), 'hidden_dim_factor': 0.3173181822719723, 'supervisor_hidden_dim': np.int64(12), 'lr': 0.0032413268041956303, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  114 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │  1.3 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │  1.3 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  114 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │    664 │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 228 M                                                         
+Non-trainable params: 0                                                         
+Total params: 228 M                                                             
+Total estimated model params size (MB): 913.833                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 94/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.847   
+                                                              uberon_tissue:    
+                                                              0.623 val_loss:   
+                                                              3.099 train_loss: 
+                                                              1.515             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.1040889024734497     │
+│       uberon_tissue       │    1.9547265768051147     │
+│         val_loss          │    3.0588154792785645     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   7%|▋         | 7/100 [02:52<34:08, 22.03s/it, Iteration=8, Best Loss=2.63]Tuning Progress:   8%|▊         | 8/100 [02:52<36:28, 23.79s/it, Iteration=8, Best Loss=2.63]GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 7 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(80), 'hidden_dim_factor': 0.2093939877366676, 'supervisor_hidden_dim': np.int64(28), 'lr': 0.00079342935945906, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │ 75.8 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │  6.5 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │  6.5 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │ 75.5 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  2.8 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 151 M                                                         
+Non-trainable params: 0                                                         
+Total params: 151 M                                                             
+Total estimated model params size (MB): 605.313                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 18/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.918   
+                                                              uberon_tissue:    
+                                                              1.604 val_loss:   
+                                                              3.123 train_loss: 
+                                                              2.515             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.1589726209640503     │
+│       uberon_tissue       │    1.9818460941314697     │
+│         val_loss          │    3.1408185958862305     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   8%|▊         | 8/100 [03:03<36:28, 23.79s/it, Iteration=9, Best Loss=2.63]Tuning Progress:   9%|▉         | 9/100 [03:03<29:48, 19.65s/it, Iteration=9, Best Loss=2.63]GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 8 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(97), 'hidden_dim_factor': 0.29796223064175065, 'supervisor_hidden_dim': np.int64(22), 'lr': 0.001100698868558953, 'epochs': 500, 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  108 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │  9.5 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │  9.5 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  107 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  2.6 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 215 M                                                         
+Non-trainable params: 0                                                         
+Total params: 215 M                                                             
+Total estimated model params size (MB): 862.471                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 23/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.911   
+                                                              uberon_tissue:    
+                                                              1.534 val_loss:   
+                                                              3.405 train_loss: 
+                                                              2.434             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.0890717506408691     │
+│       uberon_tissue       │    2.3030502796173096     │
+│         val_loss          │    3.3921220302581787     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:   9%|▉         | 9/100 [03:20<29:48, 19.65s/it, Iteration=10, Best Loss=2.63]Tuning Progress:  10%|█         | 10/100 [03:20<28:28, 18.99s/it, Iteration=10, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 9 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(19), 'hidden_dim_factor': 0.2440042512683096, 'supervisor_hidden_dim': np.int64(32), 'lr': 0.01, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │ 87.8 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │    380 │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │    380 │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │ 87.7 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  1.2 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 175 M                                                         
+Non-trainable params: 0                                                         
+Total params: 175 M                                                             
+Total estimated model params size (MB): 701.796                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 72/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 1.836   
+                                                              uberon_tissue:    
+                                                              0.017 val_loss:   
+                                                              3.466 train_loss: 
+                                                              1.238             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.8699798583984375     │
+│       uberon_tissue       │    1.6058058738708496     │
+│         val_loss          │     3.475785732269287     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  10%|█         | 10/100 [03:41<28:28, 18.99s/it, Iteration=11, Best Loss=2.63]Tuning Progress:  11%|█         | 11/100 [03:41<28:47, 19.40s/it, Iteration=11, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 10 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(128), 'hidden_dim_factor': 0.5, 'supervisor_hidden_dim': np.int64(32), 'lr': 0.002596614529871887, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  181 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │ 16.5 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │ 16.5 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  180 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  4.7 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 362 M                                                         
+Non-trainable params: 0                                                         
+Total params: 362 M                                                             
+Total estimated model params size (MB): 1,450.809                               
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 48/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.931   
+                                                              uberon_tissue:    
+                                                              0.394 val_loss:   
+                                                              2.920 train_loss: 
+                                                              1.345             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.1789474487304688     │
+│       uberon_tissue       │    1.6814615726470947     │
+│         val_loss          │    2.8604090213775635     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  11%|█         | 11/100 [04:13<28:47, 19.40s/it, Iteration=12, Best Loss=2.63]Tuning Progress:  12%|█▏        | 12/100 [04:13<34:12, 23.32s/it, Iteration=12, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 11 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(118), 'hidden_dim_factor': 0.4750406642933657, 'supervisor_hidden_dim': np.int64(13), 'lr': 0.00047754087225737027, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  172 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │ 14.0 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │ 14.0 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  171 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  1.8 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 344 M                                                         
+Non-trainable params: 0                                                         
+Total params: 344 M                                                             
+Total estimated model params size (MB): 1,377.268                               
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 20/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.916   
+                                                              uberon_tissue:    
+                                                              1.866 val_loss:   
+                                                              3.726 train_loss: 
+                                                              2.775             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │     1.180701494216919     │
+│       uberon_tissue       │     2.537827730178833     │
+│         val_loss          │     3.718529224395752     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  12%|█▏        | 12/100 [04:37<34:12, 23.32s/it, Iteration=13, Best Loss=2.63]Tuning Progress:  13%|█▎        | 13/100 [04:37<34:19, 23.67s/it, Iteration=13, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 12 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(59), 'hidden_dim_factor': 0.4722839187401202, 'supervisor_hidden_dim': np.int64(32), 'lr': 0.003536286154798819, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  170 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │  3.5 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │  3.5 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  170 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  2.5 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 340 M                                                         
+Non-trainable params: 0                                                         
+Total params: 340 M                                                             
+Total estimated model params size (MB): 1,362.743                               
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 55/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 1.147   
+                                                              uberon_tissue:    
+                                                              0.377 val_loss:   
+                                                              2.814 train_loss: 
+                                                              1.525             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.1017738580703735     │
+│       uberon_tissue       │     1.765087366104126     │
+│         val_loss          │     2.866861581802368     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  13%|█▎        | 13/100 [05:09<34:19, 23.67s/it, Iteration=14, Best Loss=2.63]Tuning Progress:  14%|█▍        | 14/100 [05:09<37:34, 26.21s/it, Iteration=14, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 13 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(125), 'hidden_dim_factor': 0.5, 'supervisor_hidden_dim': np.int64(32), 'lr': 0.0027327204510552683, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  181 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │ 15.8 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │ 15.8 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  180 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  4.6 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 362 M                                                         
+Non-trainable params: 0                                                         
+Total params: 362 M                                                             
+Total estimated model params size (MB): 1,450.462                               
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 29/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 1.133   
+                                                              uberon_tissue:    
+                                                              0.825 val_loss:   
+                                                              2.914 train_loss: 
+                                                              1.962             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │     1.04914391040802      │
+│       uberon_tissue       │     1.870924711227417     │
+│         val_loss          │    2.9200689792633057     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  14%|█▍        | 14/100 [05:39<37:34, 26.21s/it, Iteration=15, Best Loss=2.63]Tuning Progress:  15%|█▌        | 15/100 [05:39<38:24, 27.12s/it, Iteration=15, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 14 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(99), 'hidden_dim_factor': 0.31720890612833275, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.0019755112352948154, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  115 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │  9.9 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │  9.9 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  114 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  3.2 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 229 M                                                         
+Non-trainable params: 0                                                         
+Total params: 229 M                                                             
+Total estimated model params size (MB): 918.224                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 36/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.894   
+                                                              uberon_tissue:    
+                                                              0.945 val_loss:   
+                                                              3.335 train_loss: 
+                                                              1.847             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    0.9959665536880493     │
+│       uberon_tissue       │     2.355945348739624     │
+│         val_loss          │     3.351912021636963     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  15%|█▌        | 15/100 [05:59<38:24, 27.12s/it, Iteration=16, Best Loss=2.63]Tuning Progress:  16%|█▌        | 16/100 [05:59<35:10, 25.13s/it, Iteration=16, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 15 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(128), 'hidden_dim_factor': 0.25011506294143, 'supervisor_hidden_dim': np.int64(28), 'lr': 0.0015987023015639186, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │ 91.0 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │ 16.5 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │ 16.5 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │ 90.4 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  4.1 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 181 M                                                         
+Non-trainable params: 0                                                         
+Total params: 181 M                                                             
+Total estimated model params size (MB): 725.746                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 15/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 1.014   
+                                                              uberon_tissue:    
+                                                              1.388 val_loss:   
+                                                              3.071 train_loss: 
+                                                              2.393             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │     1.070383906364441     │
+│       uberon_tissue       │    2.0194990634918213     │
+│         val_loss          │    3.0898830890655518     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  16%|█▌        | 16/100 [06:12<35:10, 25.13s/it, Iteration=17, Best Loss=2.63]Tuning Progress:  17%|█▋        | 17/100 [06:12<29:52, 21.60s/it, Iteration=17, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 16 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(124), 'hidden_dim_factor': 0.23423476301250798, 'supervisor_hidden_dim': np.int64(31), 'lr': 0.004022115292525552, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │ 85.2 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │ 15.5 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │ 15.5 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │ 84.6 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  4.4 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 169 M                                                         
+Non-trainable params: 0                                                         
+Total params: 169 M                                                             
+Total estimated model params size (MB): 679.435                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 27/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.983   
+                                                              uberon_tissue:    
+                                                              0.548 val_loss:   
+                                                              3.453 train_loss: 
+                                                              1.562             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.0723809003829956     │
+│       uberon_tissue       │    2.4027724266052246     │
+│         val_loss          │    3.4751534461975098     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  17%|█▋        | 17/100 [06:27<29:52, 21.60s/it, Iteration=18, Best Loss=2.63]Tuning Progress:  18%|█▊        | 18/100 [06:27<26:33, 19.44s/it, Iteration=18, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 17 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(16), 'hidden_dim_factor': 0.5, 'supervisor_hidden_dim': np.int64(8), 'lr': 0.004970099365832319, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │  179 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │    272 │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │    272 │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │  179 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │    296 │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 359 M                                                         
+Non-trainable params: 0                                                         
+Total params: 359 M                                                             
+Total estimated model params size (MB): 1,437.929                               
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 101/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 1.794  
+                                                               uberon_tissue:   
+                                                               0.636 val_loss:  
+                                                               3.967 train_loss:
+                                                               2.286            
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    1.9381498098373413     │
+│       uberon_tissue       │     1.998058795928955     │
+│         val_loss          │     3.936208486557007     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  18%|█▊        | 18/100 [07:12<26:33, 19.44s/it, Iteration=19, Best Loss=2.63]Tuning Progress:  19%|█▉        | 19/100 [07:12<36:33, 27.08s/it, Iteration=19, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 18 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(118), 'hidden_dim_factor': 0.25108003909397086, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.0015192692726294697, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │ 91.2 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │ 14.0 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │ 14.0 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │ 90.7 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  3.7 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 181 M                                                         
+Non-trainable params: 0                                                         
+Total params: 181 M                                                             
+Total estimated model params size (MB): 727.910                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 83/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.743   
+                                                              uberon_tissue:    
+                                                              0.353 val_loss:   
+                                                              3.029 train_loss: 
+                                                              1.070             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    0.9861144423484802     │
+│       uberon_tissue       │    1.9986673593521118     │
+│         val_loss          │    2.9847817420959473     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  19%|█▉        | 19/100 [07:34<36:33, 27.08s/it, Iteration=20, Best Loss=2.63]Tuning Progress:  20%|██        | 20/100 [07:34<34:20, 25.75s/it, Iteration=20, Best Loss=2.63]/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+💡 Tip: For seamless cloud logging and experiment tracking, try installing [litlogger](https://pypi.org/project/litlogger/) to enable LitLogger, which logs metrics and artifacts automatically to the Lightning Experiments platform.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+[INFO] current best val loss: 2.6296746730804443; best params: {'latent_dim': np.int64(105), 'hidden_dim_factor': 0.25503043695984917, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.001562069367563987, 'epochs': 500, 'batch_size': np.int64(32)} since 19 hpo iterations
+[INFO] training validation split 1
+[INFO] hpo config:{'latent_dim': np.int64(127), 'hidden_dim_factor': 0.2572666195382289, 'supervisor_hidden_dim': np.int64(27), 'lr': 0.00117690812180199, 'epochs': np.int64(500), 'batch_size': np.int64(32)}
+┏━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━┳━━━━━━━┓
+┃   ┃ Name       ┃ Type          ┃ Params ┃ Mode  ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━╇━━━━━━━┩
+│ 0 │ log_vars   │ ParameterDict │      2 │ train │     0 │
+│ 1 │ encoders   │ ModuleList    │ 93.6 M │ train │     0 │
+│ 2 │ FC_mean    │ Linear        │ 16.3 K │ train │     0 │
+│ 3 │ FC_log_var │ Linear        │ 16.3 K │ train │     0 │
+│ 4 │ decoders   │ ModuleList    │ 93.0 M │ train │     0 │
+│ 5 │ MLPs       │ ModuleDict    │  4.0 K │ train │     0 │
+└───┴────────────┴───────────────┴────────┴───────┴───────┘
+Trainable params: 186 M                                                         
+Non-trainable params: 0                                                         
+Total params: 186 M                                                             
+Total estimated model params size (MB): 746.510                                 
+Modules in train mode: 25                                                       
+Modules in eval mode: 0                                                         
+Total FLOPs: 0                                                                  
+Epoch 84/499 ━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s mmd_loss: 0.718   
+                                                              uberon_tissue:    
+                                                              0.570 val_loss:   
+                                                              2.759 train_loss: 
+                                                              1.274             
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃      Validate metric      ┃       DataLoader 0        ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│         mmd_loss          │    0.9389456510543823     │
+│       uberon_tissue       │     1.83756422996521      │
+│         val_loss          │    2.7765097618103027     │
+└───────────────────────────┴───────────────────────────┘
+Validation ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1/1 0:00:00 • 0:00:00 0.00it/s 
+Tuning Progress:  20%|██        | 20/100 [07:58<34:20, 25.75s/it, Iteration=21, Best Loss=2.63]Tuning Progress:  21%|██        | 21/100 [07:58<33:11, 25.21s/it, Iteration=21, Best Loss=2.63]Tuning Progress:  21%|██        | 21/100 [07:58<30:01, 22.80s/it, Iteration=21, Best Loss=2.63]
+No improvement in best loss for 20 iterations, stopping hyperparameter optimisation early.
+[INFO] Extracting sample embeddings
+[INFO] Computing variable importance scores using explainer:  IntegratedGradients
+[INFO] Computing feature importance for variable: uberon_tissue on device: cuda
+IG attributions [uberon_tissue]:   0%|          | 0/1 [00:00<?, ?it/s]IG attributions [uberon_tissue]: 100%|██████████| 1/1 [00:09<00:00,  9.29s/it]IG attributions [uberon_tissue]: 100%|██████████| 1/1 [00:09<00:00,  9.29s/it]
+[WARNING] Encoder Defaults. Some uberon_tissue values are present in test but not in test
+[INFO] Computing model evaluation metrics
+[INFO] Wrote inference artifacts to /data/local/mgiller/atlas_tissue_representation/Models/like_finetune_split/from_scratch_supervised_vae_75.artifacts.joblib
+[rank: 0] Seed set to 42
+[INFO] Using device: cuda
+[INFO] Device name: Tesla P40
+[INFO] Available CUDA devices: 1
+
+[INFO] ================= Importing Data =================
+[INFO] Validating data folders...
+
+[INFO] ----------------- Reading Data ----------------- 
+[INFO] Importing /data/local/mgiller/atlas_tissue_representation/Data/75_FinetuneSamples_split/train/gex.csv...
+[INFO] Importing /data/local/mgiller/atlas_tissue_representation/Data/75_FinetuneSamples_split/train/clin.csv...
+
+[INFO] ----------------- Reading Data ----------------- 
+[INFO] Importing /data/local/mgiller/atlas_tissue_representation/Data/75_FinetuneSamples_split/test/gex.csv...
+[INFO] Importing /data/local/mgiller/atlas_tissue_representation/Data/75_FinetuneSamples_split/test/clin.csv...
+
+[INFO] ----------------- Checking for problems with the input data ----------------- 
+[INFO] Data structure is valid with no errors or warnings.
+
+[INFO] ----------------- Processing Data (train) ----------------- 
+
+[INFO] ----------------- Cleaning Up Data ----------------- 
+
+[INFO] working on layer:  gex
+[INFO] Number of NA values:  0
+[INFO] DataFrame gex - Removed 188 features.
+[INFO] DataFrame gex - Removed 0 samples (0.00%).
+[INFO] Implementing feature selection using laplacian score for layer: gex with  19028 features  and  75  samples 
+[INFO] No feature selection applied. Returning original matrix. Demanded # of features is  larger than existing number of features
+
+[INFO] ----------------- Processing Data (test) ----------------- 
+
+[INFO] ----------------- Cleaning Up Data ----------------- 
+
+[INFO] working on layer:  gex
+[INFO] Number of NA values:  0
+[INFO] DataFrame gex - Removed 193 features.
+[INFO] DataFrame gex - Removed 0 samples (0.00%).
+
+[INFO] ----------------- Harmonizing Data Sets ----------------- 
+
+[INFO] ----------------- Finished Harmonizing ----------------- 
+
+[INFO] ----------------- Normalizing Data ----------------- 
+
+[INFO] ----------------- Normalizing Data ----------------- 
+[INFO] Training Data Stats:  {'feature_count in: gex': 18946, 'sample_count': 75}
+[INFO] Test Data Stats:  {'feature_count in: gex': 18946, 'sample_count': 1087}
+[INFO] Merging Feature Logs...
+[INFO] Data import successful.
+Training RandomForest on variable: uberon_tissue
+Train: (75, 18946)
+Test: (1087, 18946)
+Training method: RandomForest
+
+Classification Report:
+              precision    recall  f1-score   support
+
+        -1.0       0.00      0.00      0.00        59
+         0.0       0.29      0.96      0.44        27
+         1.0       0.00      0.00      0.00        40
+         2.0       0.00      0.00      0.00        32
+         3.0       0.95      0.68      0.80        92
+         4.0       0.78      0.54      0.64        92
+         5.0       0.75      0.05      0.09        60
+         6.0       0.71      0.87      0.78        67
+         7.0       1.00      0.04      0.08        23
+         8.0       0.81      0.45      0.58        55
+         9.0       0.00      0.00      0.00        35
+        10.0       0.34      0.93      0.50       174
+        11.0       0.75      0.97      0.85       106
+        12.0       0.32      0.19      0.24        59
+        13.0       1.00      0.02      0.04        51
+        14.0       0.71      0.89      0.79        81
+        15.0       1.00      0.09      0.16        34
+
+    accuracy                           0.53      1087
+   macro avg       0.55      0.39      0.35      1087
+weighted avg       0.58      0.53      0.46      1087
+
+[WARNING] Encoder Defaults. Some uberon_tissue values are present in test but not in test
+RandomForest evaluation complete. Results saved.

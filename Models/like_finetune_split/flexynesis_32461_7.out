@@ -1,0 +1,25 @@
+Running array task 7 with   samples based on sl-akali-p-cs2
+[rank: 0] Seed set to 42
+############################BRANCH TEST################################
+[INFO] Using device: cuda
+[INFO] Device name: Tesla P40
+[INFO] Available CUDA devices: 1
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 1083, in main
+    raise FileNotFoundError(
+FileNotFoundError: Input --data_path doesn't exist at: /data/local/mgiller/atlas_tissue_representation/Data/_FinetuneSamples_split
+[rank: 0] Seed set to 42
+############################BRANCH TEST################################
+[INFO] Using device: cuda
+[INFO] Device name: Tesla P40
+[INFO] Available CUDA devices: 1
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 1083, in main
+    raise FileNotFoundError(
+FileNotFoundError: Input --data_path doesn't exist at: /data/local/mgiller/atlas_tissue_representation/Data/_FinetuneSamples_split
