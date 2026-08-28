@@ -84,29 +84,34 @@ def create_dataframe_over_confusionmetrics(path_to_dir):
     return result
 
 
-def lollipop_plot(df :pd.DataFrame,  save_loc:str,Title = "Label Concordance"):
+def lollipop_plot(df: pd.DataFrame, save_loc: str, Title="Label Concordance"):
     descriptors = list(df.columns.values)
-    colors = ['skyblue','green','lightgreen','yellow','orange','gold',"brown",'red','pink','purple','indigo','blue']
-    # Reorder it following the values of the first value:
-    ordered_df = df.sort_values(by=descriptors[len(descriptors)-1])
-    my_range=range(1,len(df.index)+1)
+    ordered_df = df.sort_values(by=descriptors[len(descriptors) - 1])
+    my_range = range(1, len(df.index) + 1)
 
-    # The horizontal plot is made using the hline function
-    for i in range(1,len(descriptors)-1):
-        plt.hlines(y=my_range, xmin=ordered_df[descriptors[i]], xmax=ordered_df[descriptors[i+1]], color='grey', alpha=0.4, zorder=1)
-    for i in range(1,len(descriptors)):
-        plt.scatter(ordered_df[descriptors[i]], my_range, color=colors[i%len(colors)], alpha=1, label=descriptors[i])
-    #plt.scatter(ordered_df['value2'], my_range, color='lightgreen', alpha=1 , label='value2')
+    palette = cm.viridis(np.linspace(0, 1, len(descriptors)))
+    hex_colors = [mcolors.to_hex(c) for c in palette]
+    category_color = dict(enumerate(hex_colors))  # {0: '#...', 1: '#...', ...}
+
+    for i in range(1, len(descriptors) - 1):
+        plt.hlines(
+            y=my_range,
+            xmin=ordered_df[descriptors[i]],
+            xmax=ordered_df[descriptors[i + 1]],
+            color='grey', alpha=0.4, zorder=1
+        )
+    for i in range(1, len(descriptors)):
+        plt.scatter(
+            ordered_df[descriptors[i]], my_range,
+            color=category_color[i], alpha=1, label=descriptors[i]
+        )
+
     plt.legend()
-
-    # Add title and axis names
     plt.yticks(my_range, ordered_df['label'])
-    plt.title("Label Concordance over Finetuning instances", loc='left')
+    plt.title(Title, loc='left')
     plt.xlabel('Label Concordance')
     plt.ylabel('Label')
     plt.tight_layout()
-
-    # Show the graph
     plt.savefig(save_loc)
     plt.clf()
 
@@ -248,7 +253,15 @@ def Plotpermetric(dict_to_path_to_dir: list[str], saveloc: str, Title: str = "Pe
         else:
             return "other"
 
-    categories = ["geq", "RandomForest", "supervised_vae", "other"]
+    # internal key -> display label. Edit freely without touching detection logic.
+    CATEGORY_LABELS = {
+        "geq": "Fine-Tune",
+        "RandomForest": "Random Forest",
+        "supervised_vae": "Supervised VAE",
+        "other": "Other",
+    }
+
+    categories = list(CATEGORY_LABELS.keys())  # fixed order, controls color assignment
     palette = cm.viridis(np.linspace(0, 1, len(categories)))
     hex_colors = [mcolors.to_hex(c) for c in palette]
     category_color = dict(zip(categories, hex_colors))
@@ -279,7 +292,8 @@ def Plotpermetric(dict_to_path_to_dir: list[str], saveloc: str, Title: str = "Pe
         metric_df = concats.filter(pl.col("metric") == metric)
 
         titles_ordered = metric_df["title"].to_list()
-        bar_colors = [category_color[c] for c in metric_df["category"].to_list()]
+        cats_ordered = metric_df["category"].to_list()
+        bar_colors = [category_color[c] for c in cats_ordered]
 
         plt.clf()
         plt.figure(figsize=(10, 6))
@@ -287,14 +301,16 @@ def Plotpermetric(dict_to_path_to_dir: list[str], saveloc: str, Title: str = "Pe
         plt.xticks(range(len(titles_ordered)), titles_ordered, rotation=90)
         plt.title(f"{Title}: {metric}")
 
-        # legend showing category -> color, only for categories actually present
-        present = [c for c in categories if c in set(metric_df["category"].to_list())]
+        # legend uses CATEGORY_LABELS for display text, only for categories present
+        present = [c for c in categories if c in set(cats_ordered)]
         handles = [plt.Rectangle((0, 0), 1, 1, color=category_color[c]) for c in present]
-        plt.legend(handles, present, title="Category")
+        labels = [CATEGORY_LABELS[c] for c in present]
+        plt.legend(handles, labels, title="Category")
 
         plt.tight_layout()
         plt.savefig(os.path.join(saveloc, Title + metric + ".png"), bbox_inches='tight')
         plt.clf()
+
 
 if __name__ == "__main__":
     headdir = os.path.dirname(os.getcwd())
