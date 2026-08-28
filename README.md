@@ -1,6 +1,6 @@
 # Inference and Finetuning on Celline gex Data over a model based on Tissue Samples
 Core Idea:
-if we take a model trained on gex expression data from Tissue Samples to predict uberron Tissue Type, can we use the same Model to predict "Tissue Types of Celline data" to what extend does Finetuning improves performance  and if so to what extend does the Model compare to Models Trained from scratch.  
+if we take a model trained on gex expression data from Tissue Samples of the Atlas Tissue Dataset predict uberron Tissue Type, can we use the same Model to predict "Tissue Types of Celline data" to what extend does Finetuning improves performance  and if so to what extend does the Model compare to Models Trained from scratch.  
 
 
 # Datasets
