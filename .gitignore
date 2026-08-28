@@ -1,0 +1,14 @@
+
+Models/Atlas-uberon_tissue-SupervisedVAE/
+Data/processed_scaled_411k_tissue_B_h5/
+Data/leq_than_60_samples/
+Data/celline-data/
+
+Models/*/*/*.pth
+*.csv
+*.pth
+*.json
+!*.py
+!*.sh
+!*.stats.csv
+!*.predicted_labels.csv
