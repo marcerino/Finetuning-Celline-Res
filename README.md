@@ -34,7 +34,7 @@ supervised_vae,uberon_tissue,categorical,f1_score,0.9507821995626191
 supervised_vae,uberon_tissue,categorical,kappa,0.9435743085846471
 ```
 
-![Performance of Finetuning](Plots/Performance%20of%20Models%20geq%2025f1_score.png)
+![Performance of Finetuning](Plots/Performance%20of%20Models%20geq%2025balanced_acc.png)
 
 Confusion Matrices for each finetune step can be found unter in `Plots/geq_25_confusion_table/`
 Note the newly trained model recieved the same Samples to train upon as the Tissue Trained Model for Finetuning.
