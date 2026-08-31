@@ -58,4 +58,9 @@ Based upon the confusion Metrics, this plot shows the change of \[Label, Label\]
 - There is a Notable difference between the Gene express in cellines vs Tissue samples
 - despite that the Model perfomes coparatively well and outperforms from scratch Models in the space of < 200 samples.
 -  Some tissue types seem to respond better to finetuning than others.
-
+- Of note: Finetuning requires less compute to gain comparable results in low sample environments. Useful for Preliminary exploration and Users with limited accesss to compute poewer (i.e. Students, Smaller Instutuitions, Private personell)
+# TODOS
+- [ ] Label Concordance simplify to ~100 wehere the plateus
+- [ ] Datapaths with explaination
+- [ ] Addendumns from E-Mail
+- [ ] 
