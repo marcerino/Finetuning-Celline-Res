@@ -49,15 +49,25 @@ if __name__ == "__main__":
     datadir = os.path.join(headdir, "Data")
     resultdir = os.path.join(headdir, "size_filterd", "geq_25_samples")
 
-    pred_files = [file for file in os.listdir(resultdir) if file.endswith(".predicted_labels.csv")]
 
-    outnames = [file.split(".")[0]+"_split" for file in pred_files] # ie. 75_FinetuneSamples_split
+    resample_path = os.path.join(headdir,"size_filterd","Resampled")
+    resampleruns = [os.path.join(resample_path,resample) for resample in os.listdir(resample_path) if not resample.endswith(".out") ]
 
+    
+    for j in resampleruns:
+        runname = os.path.basename(j)
+        pred_files = [file for file in os.listdir(j) if file.endswith(".predicted_labels.csv")]
+        pred_path = [os.path.join(j,i) for i in pred_files ]
+        
+        originaldatapth = "/data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples"
+        #print(pred_path)
+        outnames = [file.split(".")[0]+"_split" for file in pred_files] # ie. 75_FinetuneSamples_split
 
-    pred_path = [os.path.join(resultdir,i) for i in pred_files ]
-    originaldatapth = "/data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples"
+        [print(a) for a in outnames]
 
-    for i in range(len(pred_path)):
-        os.makedirs(os.path.join(datadir,outnames[i],"test"),exist_ok = True)
-        os.makedirs(os.path.join(datadir,outnames[i],"train"),exist_ok = True)
-        split_dataset_by_finetune_samples(pred_path[i],originaldatapth,os.path.join(datadir,outnames[i]))
+        
+        for i in range(len(pred_path)):        
+            os.makedirs(os.path.join(datadir,"Resampleruns",runname,outnames[i],"test"),exist_ok = True)
+            os.makedirs(os.path.join(datadir,"Resampleruns",runname,outnames[i],"train"),exist_ok = True)
+            split_dataset_by_finetune_samples(pred_path[i],originaldatapth,os.path.join(datadir,"Resampleruns",runname,outnames[i]))
+        

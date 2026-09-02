@@ -12,3 +12,4 @@ Models/*/*/*.pth
 !*.sh
 !*.stats.csv
 !*.predicted_labels.csv
+!/Plots/*

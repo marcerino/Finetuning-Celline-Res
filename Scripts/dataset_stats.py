@@ -1,6 +1,9 @@
 import os
 import polars as pl
 
+def shared_samples(dfa, dfb)
+    return set(polars.read_csv(str(i)+suff).filter(polars.col("split") == "finetune")["sample_id"].to_list())&set(polars.read_csv(str(j)+suff).filter(polars.col("split") == "finetune")["sample_id"].to_list())
+    
 def usable_amount(pthtodir:str)-> pl.DataFrame:
     gex = pl.read_csv(os.path.join(pthtodir, "gex.csv"))
     clin = pl.read_csv(os.path.join(pthtodir, "clin.csv"))
