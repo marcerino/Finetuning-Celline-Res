@@ -1,0 +1,421 @@
+Running array task 3 with 100 samples on sl-akali-p-cs2
+Running array task 3 with 100 Subsamplerun 0 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 2.676429033279419 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 17
+[INFO] average 5-fold cross-validation loss 3.111512231826782 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 7
+[INFO] average 5-fold cross-validation loss 3.0469963550567627 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 7
+[INFO] average 5-fold cross-validation loss 5.717832374572754 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 6
+[INFO] average 5-fold cross-validation loss 3.334217643737793 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 12
+[INFO] average 5-fold cross-validation loss 3.344939184188843 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 10
+[INFO] average 5-fold cross-validation loss 5.963614654541016 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 6
+[INFO] average 5-fold cross-validation loss 4.552864933013916 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 18
+[INFO] average 5-fold cross-validation loss 4.775782823562622 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 14
+Best learning rate: 0.001562069367563987 and freeze {'encoders': True, 'supervisors': False} with average validation loss: 2.676429033279419 and average epochs: 17
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 200 M                                                         
+Non-trainable params: 67.1 M                                                    
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 16/16 ━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 29.86it/s val_loss: 2.454
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_0/100_FinetuneSamples_resample_run_0.final_model.pth
+Running array task 3 with 100 Subsamplerun 1 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 3.2250853538513184 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 20
+[INFO] average 5-fold cross-validation loss 3.797346591949463 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 6
+[INFO] average 5-fold cross-validation loss 3.8076398849487303 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 7
+[INFO] average 5-fold cross-validation loss 7.062912940979004 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 9
+[INFO] average 5-fold cross-validation loss 3.865246391296387 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 15
+[INFO] average 5-fold cross-validation loss 4.236438369750976 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 10
+[INFO] average 5-fold cross-validation loss 7.627779483795166 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 4
+[INFO] average 5-fold cross-validation loss 5.95932092666626 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 16
+[INFO] average 5-fold cross-validation loss 5.732938957214356 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 18
+Best learning rate: 0.001562069367563987 and freeze {'encoders': True, 'supervisors': False} with average validation loss: 3.2250853538513184 and average epochs: 20
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 200 M                                                         
+Non-trainable params: 67.1 M                                                    
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 19/19 ━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 29.81it/s val_loss: 2.308
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_1/100_FinetuneSamples_resample_run_1.final_model.pth
+Running array task 3 with 100 Subsamplerun 2 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 2.7972718238830567 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 15
+[INFO] average 5-fold cross-validation loss 2.9315373420715334 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 11
+[INFO] average 5-fold cross-validation loss 2.9903725147247315 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 10
+[INFO] average 5-fold cross-validation loss 5.56878023147583 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 10
+[INFO] average 5-fold cross-validation loss 3.560052251815796 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 7
+[INFO] average 5-fold cross-validation loss 3.6425042152404785 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 8
+[INFO] average 5-fold cross-validation loss 6.065465688705444 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 8
+[INFO] average 5-fold cross-validation loss 5.047736597061157 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 11
+[INFO] average 5-fold cross-validation loss 4.518962621688843 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 16
+Best learning rate: 0.001562069367563987 and freeze {'encoders': True, 'supervisors': False} with average validation loss: 2.7972718238830567 and average epochs: 15
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 200 M                                                         
+Non-trainable params: 67.1 M                                                    
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 14/14 ━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 29.91it/s val_loss: 1.848
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_2/100_FinetuneSamples_resample_run_2.final_model.pth
+Running array task 3 with 100 Subsamplerun 3 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 3.28554162979126 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 16
+[INFO] average 5-fold cross-validation loss 3.549808692932129 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 9
+[INFO] average 5-fold cross-validation loss 3.588186502456665 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 7
+[INFO] average 5-fold cross-validation loss 7.351049327850342 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 6
+[INFO] average 5-fold cross-validation loss 3.9097663879394533 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 13
+[INFO] average 5-fold cross-validation loss 3.860465478897095 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 14
+[INFO] average 5-fold cross-validation loss 7.63149127960205 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 8
+[INFO] average 5-fold cross-validation loss 6.661650371551514 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 8
+[INFO] average 5-fold cross-validation loss 5.430959224700928 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 20
+Best learning rate: 0.001562069367563987 and freeze {'encoders': True, 'supervisors': False} with average validation loss: 3.28554162979126 and average epochs: 16
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 200 M                                                         
+Non-trainable params: 67.1 M                                                    
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 15/15 ━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 29.90it/s val_loss: 2.374
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_3/100_FinetuneSamples_resample_run_3.final_model.pth
+Running array task 3 with 100 Subsamplerun 4 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 3.1813198566436767 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 15
+[INFO] average 5-fold cross-validation loss 3.465715789794922 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 7
+[INFO] average 5-fold cross-validation loss 3.4351012229919435 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 7
+[INFO] average 5-fold cross-validation loss 6.463210201263427 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 5
+[INFO] average 5-fold cross-validation loss 3.897819471359253 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 9
+[INFO] average 5-fold cross-validation loss 3.761893463134766 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 12
+[INFO] average 5-fold cross-validation loss 6.678587865829468 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 5
+[INFO] average 5-fold cross-validation loss 5.433951711654663 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 10
+[INFO] average 5-fold cross-validation loss 5.3402056217193605 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 11
+Best learning rate: 0.001562069367563987 and freeze {'encoders': True, 'supervisors': False} with average validation loss: 3.1813198566436767 and average epochs: 15
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 200 M                                                         
+Non-trainable params: 67.1 M                                                    
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 14/14 ━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 29.91it/s val_loss: 2.223
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_4/100_FinetuneSamples_resample_run_4.final_model.pth
+Running array task 3 with 100 Subsamplerun 5 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 2.914720344543457 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 16
+[INFO] average 5-fold cross-validation loss 3.8139055728912354 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 7
+[INFO] average 5-fold cross-validation loss 3.5748313903808593 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 6
+[INFO] average 5-fold cross-validation loss 6.936682605743409 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 6
+[INFO] average 5-fold cross-validation loss 3.7627910137176515 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 10
+[INFO] average 5-fold cross-validation loss 3.753736972808838 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 13
+[INFO] average 5-fold cross-validation loss 7.682429027557373 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 3
+[INFO] average 5-fold cross-validation loss 5.238434743881226 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 22
+[INFO] average 5-fold cross-validation loss 5.494264078140259 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 13
+Best learning rate: 0.001562069367563987 and freeze {'encoders': True, 'supervisors': False} with average validation loss: 2.914720344543457 and average epochs: 16
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 200 M                                                         
+Non-trainable params: 67.1 M                                                    
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 15/15 ━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 29.83it/s val_loss: 1.880
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_5/100_FinetuneSamples_resample_run_5.final_model.pth
+Running array task 3 with 100 Subsamplerun 6 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 3.0719196796417236 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 13
+[INFO] average 5-fold cross-validation loss 3.0580130100250242 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 8
+[INFO] average 5-fold cross-validation loss 2.7379228353500364 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 10
+[INFO] average 5-fold cross-validation loss 5.472385215759277 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 11
+[INFO] average 5-fold cross-validation loss 3.55023775100708 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 9
+[INFO] average 5-fold cross-validation loss 3.429625082015991 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 12
+[INFO] average 5-fold cross-validation loss 5.990444755554199 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 6
+[INFO] average 5-fold cross-validation loss 4.657099628448487 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 14
+[INFO] average 5-fold cross-validation loss 5.027620315551758 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 11
+Best learning rate: 0.001562069367563987 and freeze {'encoders': False, 'supervisors': False} with average validation loss: 2.7379228353500364 and average epochs: 10
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 267 M                                                         
+Non-trainable params: 0                                                         
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 9/9  ━━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 17.53it/s val_loss: 2.212
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_6/100_FinetuneSamples_resample_run_6.final_model.pth
+Running array task 3 with 100 Subsamplerun 7 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 2.858310031890869 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 26
+[INFO] average 5-fold cross-validation loss 3.8147050857543947 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 9
+[INFO] average 5-fold cross-validation loss 3.60571084022522 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 8
+[INFO] average 5-fold cross-validation loss 7.2902524948120115 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 8
+[INFO] average 5-fold cross-validation loss 3.865367317199707 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 16
+[INFO] average 5-fold cross-validation loss 3.763631820678711 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 16
+[INFO] average 5-fold cross-validation loss 8.178791427612305 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 4
+[INFO] average 5-fold cross-validation loss 6.274592304229737 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 14
+[INFO] average 5-fold cross-validation loss 6.141625690460205 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 14
+Best learning rate: 0.001562069367563987 and freeze {'encoders': True, 'supervisors': False} with average validation loss: 2.858310031890869 and average epochs: 26
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 200 M                                                         
+Non-trainable params: 67.1 M                                                    
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 25/25 ━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 29.19it/s val_loss: 2.393
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_7/100_FinetuneSamples_resample_run_7.final_model.pth
+Running array task 3 with 100 Subsamplerun 8 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 2.8385321617126467 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 16
+[INFO] average 5-fold cross-validation loss 2.8898125648498536 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 10
+[INFO] average 5-fold cross-validation loss 2.690719652175903 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 12
+[INFO] average 5-fold cross-validation loss 5.72632532119751 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 10
+[INFO] average 5-fold cross-validation loss 3.0912017822265625 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 17
+[INFO] average 5-fold cross-validation loss 3.0567160129547117 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 17
+[INFO] average 5-fold cross-validation loss 6.3477293968200685 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 5
+[INFO] average 5-fold cross-validation loss 4.793292808532715 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 15
+[INFO] average 5-fold cross-validation loss 4.584485387802124 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 18
+Best learning rate: 0.001562069367563987 and freeze {'encoders': False, 'supervisors': False} with average validation loss: 2.690719652175903 and average epochs: 12
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 267 M                                                         
+Non-trainable params: 0                                                         
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 11/11 ━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 17.63it/s val_loss: 2.393
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_8/100_FinetuneSamples_resample_run_8.final_model.pth
+Running array task 3 with 100 Subsamplerun 9 samples on sl-akali-p-cs2
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but OrdinalEncoder was fitted with feature names
+[rank: 0] Seed set to 42
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/fabric/plugins/environments/slurm.py:204: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3.11 /home/mgiller/miniforge3/envs/flexenv/bin/flexyn ...
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/utilities/data.py:79: UserWarning: Trying to infer the `batch_size` from an ambiguous collection. The batch size we found is 20. To avoid any miscalculations, use `self.log(..., batch_size=batch_size)`.
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/lightning/pytorch/loops/fit_loop.py:538: PossibleUserWarning: Found 52 module(s) in eval mode at the start of training. This may lead to unexpected behavior during training. If this is intentional, you can ignore this warning.
+[INFO] Inference mode: forcing device to CPU
+[INFO] Loading test data for inference...
+[INFO] Loaded artifacts for modalities: ['gex']
+[INFO] gex: Ignoring 3101 extra features not in training
+[INFO] Test dataset loaded: 1162 samples
+[INFO] Moving model to cuda for finetuning
+[INFO] FineTuner: model currently on device=cuda:0, cuda_available=True
+[INFO] average 5-fold cross-validation loss 2.7660570621490477 for learning rate: 0.001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 14
+[INFO] average 5-fold cross-validation loss 3.139796733856201 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 8
+[INFO] average 5-fold cross-validation loss 2.8568366050720213 for learning rate: 0.001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 11
+[INFO] average 5-fold cross-validation loss 6.527835893630981 for learning rate: 0.0001562069367563987 freeze {'encoders': True, 'supervisors': False}, average epochs 5
+[INFO] average 5-fold cross-validation loss 2.8874696254730225 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': True}, average epochs 24
+[INFO] average 5-fold cross-validation loss 2.721870279312134 for learning rate: 0.0001562069367563987 freeze {'encoders': False, 'supervisors': False}, average epochs 29
+[INFO] average 5-fold cross-validation loss 6.746712303161621 for learning rate: 1.562069367563987e-05 freeze {'encoders': True, 'supervisors': False}, average epochs 7
+[INFO] average 5-fold cross-validation loss 5.114186334609985 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': True}, average epochs 18
+[INFO] average 5-fold cross-validation loss 4.892679882049561 for learning rate: 1.562069367563987e-05 freeze {'encoders': False, 'supervisors': False}, average epochs 19
+Best learning rate: 0.0001562069367563987 and freeze {'encoders': False, 'supervisors': False} with average validation loss: 2.721870279312134 and average epochs: 29
+┏━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━┳━━━━━━┳━━━━━━━┓
+┃   ┃ Name           ┃ Type           ┃ Params ┃ Mode ┃ FLOPs ┃
+┡━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━╇━━━━━━╇━━━━━━━┩
+│ 0 │ original_model │ supervised_vae │  133 M │ eval │     0 │
+│ 1 │ model          │ supervised_vae │  133 M │ eval │     0 │
+└───┴────────────────┴────────────────┴────────┴──────┴───────┘
+Trainable params: 267 M                                                         
+Non-trainable params: 0                                                         
+Total params: 267 M                                                             
+Total estimated model params size (MB): 1,070.358                               
+Modules in train mode: 0                                                        
+Modules in eval mode: 52                                                        
+Total FLOPs: 0                                                                  
+Epoch 28/28 ━━━━━━━━━━━━━━━━━━━━ 4/4 0:00:00 • 0:00:00 17.55it/s val_loss: 1.670
+/home/mgiller/miniforge3/envs/flexenv/lib/python3.11/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+[INFO] Extracting sample embeddings
+[INFO] Computing model evaluation metrics
+[INFO] Finetuned model saved to /data/local/mgiller/atlas_tissue_representation/size_filterd/Resampled/resample_9/100_FinetuneSamples_resample_run_9.final_model.pth

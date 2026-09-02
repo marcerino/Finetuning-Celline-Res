@@ -1,0 +1,6 @@
+method,var,variable_type,metric,value
+RandomForestClassifier,uberon_tissue,categorical,balanced_acc,0.4485586801354368
+RandomForestClassifier,uberon_tissue,categorical,f1_score,0.5672443439692992
+RandomForestClassifier,uberon_tissue,categorical,kappa,0.5579598629938733
+RandomForestClassifier,uberon_tissue,categorical,average_auroc,0.9414474155643944
+RandomForestClassifier,uberon_tissue,categorical,average_aupr,0.7033956044601887

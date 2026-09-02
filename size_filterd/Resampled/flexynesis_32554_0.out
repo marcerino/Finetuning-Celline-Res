@@ -1,0 +1,81 @@
+Running array task 0 with 0 samples on sl-akali-p-cs2
+Running array task 0 with 0 Subsamplerun 0 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_0_version.txt
+Running array task 0 with 0 Subsamplerun 1 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_1_version.txt
+Running array task 0 with 0 Subsamplerun 2 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_2_version.txt
+Running array task 0 with 0 Subsamplerun 3 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_3_version.txt
+Running array task 0 with 0 Subsamplerun 4 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_4_version.txt
+Running array task 0 with 0 Subsamplerun 5 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_5_version.txt
+Running array task 0 with 0 Subsamplerun 6 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_6_version.txt
+Running array task 0 with 0 Subsamplerun 7 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_7_version.txt
+Running array task 0 with 0 Subsamplerun 8 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_8_version.txt
+Running array task 0 with 0 Subsamplerun 9 samples on sl-akali-p-cs2
+Traceback (most recent call last):
+  File "/home/mgiller/miniforge3/envs/flexenv/bin/flexynesis", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/mgiller/flexcode/flexynesis/flexynesis/__main__.py", line 842, in main
+    raise FileNotFoundError(f"--finetunesamples Not int and File not found: {args.finetuning_samples}")
+FileNotFoundError: --finetunesamples Not int and File not found: /data/local/mgiller/atlas_tissue_representation/Data/more_than_25_samples/subsampling/Samplelist_0_samples_9_version.txt

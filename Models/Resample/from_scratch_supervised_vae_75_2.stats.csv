@@ -1,0 +1,6 @@
+method,var,variable_type,metric,value
+supervised_vae,uberon_tissue,categorical,balanced_acc,0.3759258976374238
+supervised_vae,uberon_tissue,categorical,f1_score,0.4670556922873027
+supervised_vae,uberon_tissue,categorical,kappa,0.45461848436302976
+supervised_vae,uberon_tissue,categorical,average_auroc,0.8454800641976269
+supervised_vae,uberon_tissue,categorical,average_aupr,0.5222857180412812
