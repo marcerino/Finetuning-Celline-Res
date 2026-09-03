@@ -50,9 +50,9 @@ The Plots are created via the `Scripts/creating_the_plots.py` Script.
 The Number in #_Finetunesamples indicates the total amount of Finetune samples.
 The barplot datasets have atleast one of each label in the Dataset.
 
-![Performance of Finetuning](Plots/Performance%20of%20Models%20geq%2025balanced_acc.png)
+![Performance of Finetuning](Plots/Performance%20of%20Models%20geq%2025balanced_acc.svg)
 
-![Boxplot of Performance of Finetuned Models over 10 Runs](Plots/Performance%20of%20Finetuned%20Models%20geq%2025balanced_acc_box.png)
+![Boxplot of Performance of Finetuned Models over 10 Runs](Plots/Performance%20of%20Finetuned%20Models%20geq%2025balanced_acc_box.svg)
 Each Run contains et least 1 sample per label. All Subsets (including the min 1 per label) are chosen by chance. The heldout Sets are subsets of each other (i.e. the heldout Set in 50 Samples of a Run is a subset of the 100 Samples Set in the same Run) in each Run the Runs are independently chosen at random.
 Of note the Horizontal Lines show when the mean score from scratch Training overtakes the mean score of Finetuning for the first Time.
 
@@ -70,7 +70,7 @@ kappa,0.5401853319267591
 
  
 
-![Label Prediction performance](Plots/lollipopplot_25_and_more_samples_Finetuning.png) 
+![Label Prediction performance](Plots/lollipopplot_25_and_more_samples_Finetuning.svg) 
 
 Based upon the confusion Metrics, this plot shows the change of \[Label, Label\] over the process of Finetuning We see a significant increae of predictive performance for each Label with fluctuations. of ote are the 
 
@@ -80,12 +80,12 @@ Based upon the confusion Metrics, this plot shows the change of \[Label, Label\]
 - despite that the Model perfomes coparatively well and outperforms from scratch Models in the space of < 200 samples.
 -  Some tissue types seem to respond better to finetuning than others.
 - Of note: Finetuning requires less compute to gain comparable results in low sample environments. Useful for Preliminary exploration and Users with limited accesss to compute poewer (i.e. Students, Smaller Instutuitions, Private personell)
-
+- **Pretraining on the large tissue-expression dataset reduces the amount of labelled target-domain data required to achieve useful performance. Its advantage is strongest when cell-line training data are scarce, whereas sufficient target-domain data eventually allow de-novo training to reach or exceed the fine-tuned model.**
 
 # TODOS
 - [ ] Label Concordance simplify to ~100 wehere the plateus
-- [ ] Datapaths with explaination
-- [ ] Addendumns from E-Mail
+- [x] Datapaths with explaination
+- [x] Addendumns from E-Mail
 
 
 
@@ -114,18 +114,18 @@ atlas_tissue_representation/
 │   ├── Resample/ <- THE RESAMPLED TISSUE MODEL
 │   ├── like_finetune_split/ <- THE FINETUNED MODELS SINGULAR SPLIT
 ├── Plots/                    <- Contains Figures and tables
-│   ├── Performance of Finetuned Models geq 25balanced_acc_box.png <- Boxplot of balanced accuracy for finetuned models
-│   ├── Performance of Finetuned Models geq 25f1_score_box.png <- Boxplot of f1 score for finetuned models
-│   ├── Performance of Finetuned Models geq 25kappa_box.png <- Boxplot of kappa for finetuned models
-│   ├── Performance of Models geq 25balanced_acc.png <- Boxplot of balanced accuracy for SINGLE RUN models
-│   ├── Performance of Models geq 25f1_score.png <- Boxplot of f1 score for SINGLE RUN models
-│   ├── Performance of Models geq 25kappa.png <- Boxplot of kappa for SINGLE RUN models
+│   ├── Performance of Finetuned Models geq 25balanced_acc_box.svg <- Boxplot of balanced accuracy for finetuned models
+│   ├── Performance of Finetuned Models geq 25f1_score_box.svg <- Boxplot of f1 score for finetuned models
+│   ├── Performance of Finetuned Models geq 25kappa_box.svg <- Boxplot of kappa for finetuned models
+│   ├── Performance of Models geq 25balanced_acc.svg <- Boxplot of balanced accuracy for SINGLE RUN models
+│   ├── Performance of Models geq 25f1_score.svg <- Boxplot of f1 score for SINGLE RUN models
+│   ├── Performance of Models geq 25kappa.svg <- Boxplot of kappa for SINGLE RUN models
 │   ├── Resample_finetuned_stats.csv <- Statistics for finetuned models resampled from the resampled tissue model
 │   ├── Resample_from_scratch_stats.csv <- Statistics for finetuned models resampled from scratch
 │   ├── geq_25_confusion_table/ <- Confusion matrices for finetuned models Singular Run
-│   ├── lollipopplot_25_and_more_samples_Finetuning.png <- Lollipop plot of f1 score for finetuned models
+│   ├── lollipopplot_25_and_more_samples_Finetuning.svg <- Lollipop plot of f1 score for finetuned models
 │   ├── low_sample_table/ <- Confusion matrices for finetuned models trained on low sample sizes
-│   └── top_9_tissues.png
+│   └── top_9_tissues.svg
 ├── README.md
 ├── RESAMPLERUNLIST.sh <- 
 ├── Scripts/

@@ -38,7 +38,7 @@ def confusion_matrices_in_dir(path_to_dir,pth_outdir,Title):
 
     for i in metrics:
         figtitle = Title +"_"+ i.split(".")[0]
-        create_confusion_metrics(os.path.join(path_to_dir,i),os.path.join(pth_outdir,figtitle+".png"),figtitle)
+        create_confusion_metrics(os.path.join(path_to_dir,i),os.path.join(pth_outdir,figtitle+".svg"),figtitle)
 
 
 def extract_confusion_metrics(path_to_csv: str) -> pd.DataFrame:
@@ -233,7 +233,7 @@ def basleine_performance_visualyser(path_to_dir :str, saveloc :str , Title: str 
 
         plt.tight_layout()
         safe_method = re.sub(r"[^\w\-.]", "_", method)
-        local_save = os.path.join(saveloc, f"{safe_method}_baseline_comparison.png")
+        local_save = os.path.join(saveloc, f"{safe_method}_baseline_comparison.svg")
         plt.savefig(local_save)
         plt.close(fig)
 
@@ -313,7 +313,7 @@ def plotpermetric(dict_to_path_to_dir: list[str], saveloc: str, Title: str = "Pe
         plt.legend(handles, labels, title="Category")
 
         plt.tight_layout()
-        plt.savefig(os.path.join(saveloc, Title + metric + ".png"), bbox_inches='tight')
+        plt.savefig(os.path.join(saveloc, Title + metric + ".svg"), bbox_inches='tight')
         plt.clf()
         plt.close()
         
@@ -471,17 +471,37 @@ def plotpermetric_box(stat_files: list[str], saveloc: str, Title: str = "Perform
         ax.legend(handles, labels, title="Category", fontsize=8)
 
         plt.tight_layout()
-        plt.savefig(os.path.join(saveloc, Title + metric + "_box.png"), bbox_inches='tight')
+        plt.savefig(os.path.join(saveloc, Title + metric + "_box.svg"), bbox_inches='tight')
         plt.clf()
         plt.close()
-        
+   
+def lineplot(pthtofiles: list[str],saveloc: str):
+    dfs = [pl.read_csv(file).select(["Model","Samples", "Run", "kappa", "f1_score", "balanced_acc"]) for file in pthtofiles]
+    dfs = [pl.read_csv(file).select(["Model","Samples", "Run", "kappa", "f1_score", "balanced_acc"]) for file in pthtofiles]
+    table = pl.concat(dfs,how="vertical")
+
+    # Reordering for Coloring Concistency :/
+    modelnames = ["finetune_supervised_vae","RandomForest","supervised_vae"]
+    table = pl.concat( [table.filter(pl.col("Model")==name) for name in modelnames],how="vertical") 
+    
+    metric = ["kappa","f1_score","balanced_acc"]
+    for m in metric:
+        sns.lineplot(
+            data=table,
+            x="Samples", y=m, hue="Model", style="Model",
+            markers=True, dashes=False, palette="viridis"
+        )
+        plt.savefig(os.path.join(saveloc, m + "_lineplot.svg"))
+        plt.clf()
+        plt.close()
+    
 if __name__ == "__main__":
     headdir = os.path.dirname(os.getcwd())
     datadir = os.path.join(headdir, "Data")
     resultdir = os.path.join(headdir, "size_filterd")
     plotdir = os.path.join(headdir, "Plots")
     os.makedirs(plotdir, exist_ok=True)
-    save_loc = os.path.join(plotdir,"lollipopplot_25_and_more_samples_Finetuning.png")
+    save_loc = os.path.join(plotdir,"lollipopplot_25_and_more_samples_Finetuning.svg")
 
     dirlowDirect = os.path.join(headdir, "Models","low_data_split","DirectPred")
     dirlowsupervae = os.path.join(headdir, "Models","low_data_split","supervised_vae")
@@ -489,9 +509,9 @@ if __name__ == "__main__":
     dir25 = os.path.join(resultdir, "geq_25_samples")
     dirtop9 = os.path.join(headdir, "oncotop9-finetune")
     dir25step10 = os.path.join(resultdir, "geq_25_samples")
-
-    plotpermetric_box(["/data/local/mgiller/atlas_tissue_representation/Plots/Resample_finetuned_stats.csv",
-        "/data/local/mgiller/atlas_tissue_representation/Plots/Resample_from_scratch_stats.csv"],
+    resamplestats = ["/data/local/mgiller/atlas_tissue_representation/Plots/Resample_finetuned_stats.csv",
+        "/data/local/mgiller/atlas_tissue_representation/Plots/Resample_from_scratch_stats.csv",]
+    plotpermetric_box(resamplestats,
         plotdir,
         "Performance of Finetuned Models geq 25")
 
@@ -501,18 +521,17 @@ if __name__ == "__main__":
     df = create_dataframe_over_confusionmetrics(dir25)
     lollipop_plot(df,save_loc)
 
-    
+    lineplot(resamplestats, plotdir)
 
-    """
     #onco top 9 Tissues and more flexy
     df = create_dataframe_over_confusionmetrics(dirtop9)
-    lollipop_plot(df,os.path.join(plotdir,"top_9_tissues.png"))
+    lollipop_plot(df,os.path.join(plotdir,"top_9_tissues.svg"))
 
     #Low Sample Training
     df = create_dataframe_over_confusionmetrics(dirlowDirect)
-    lollipop_plot(df,os.path.join(plotdir,"Low_Data_Direct_tissues.png"))
+    lollipop_plot(df,os.path.join(plotdir,"Low_Data_Direct_tissues.svg"))
     df = create_dataframe_over_confusionmetrics(dirlowsupervae)
-    lollipop_plot(df,os.path.join(plotdir,"Low_Data_supervae_tissues.png"))
+    lollipop_plot(df,os.path.join(plotdir,"Low_Data_supervae_tissues.svg"))
 
     #confusion Metrics
     os.makedirs(os.path.join(plotdir,"geq_25_confusion_table"), exist_ok=True)
@@ -522,27 +541,24 @@ if __name__ == "__main__":
     os.makedirs(os.path.join(plotdir,"low_sample_table"), exist_ok=True)
     confusion_matrices_in_dir(dirlowDirect,os.path.join(plotdir,"low_sample_table"),"low_train_sample_DirectPred_cofusion_metrics")
     confusion_matrices_in_dir(dirlowsupervae,os.path.join(plotdir,"low_sample_table"),"low_train_sample_supervised_vae_cofusion_metrics")
-    """
   
   
-    """
     #Basline_lowsample
     basleine_performance_visualyser(os.path.join(dirlowDirect),os.path.join(plotdir,"low_sample_table"),"Baseline Performace 108 Samples")
     basleine_performance_visualyser(os.path.join(dirlowDirect),os.path.join(plotdir,"low_sample_table"),"Baseline Performace 50 Samples")
 
   
     #Kappa Scores  min 25
-    score_visualizer(dir25,os.path.join(plotdir,"min_25_samples_scores.png"))
+    score_visualizer(dir25,os.path.join(plotdir,"min_25_samples_scores.svg"))
 
-    score_visualizer(dir25step10,os.path.join(plotdir,"geq_25_samples_scores.png"))
+    score_visualizer(dir25step10,os.path.join(plotdir,"geq_25_samples_scores.svg"))
 
 
     #kapa score top 9
-    score_visualizer(dirtop9,os.path.join(plotdir,"top_9_stats.png"))
+    score_visualizer(dirtop9,os.path.join(plotdir,"top_9_stats.svg"))
 
     #Kappascore Lowsample gex
-    score_visualizer(dirlowDirect,os.path.join(plotdir,"low_dir_Direct_stats.png"))
-    score_visualizer(dirlowsupervae,os.path.join(plotdir,"low_dir_supervae_stats.png"))
+    score_visualizer(dirlowDirect,os.path.join(plotdir,"low_dir_Direct_stats.svg"))
+    score_visualizer(dirlowsupervae,os.path.join(plotdir,"low_dir_supervae_stats.svg"))
 
 
-    """
