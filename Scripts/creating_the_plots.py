@@ -500,9 +500,8 @@ if __name__ == "__main__":
     datadir = os.path.join(headdir, "Data")
     resultdir = os.path.join(headdir, "size_filterd")
     plotdir = os.path.join(headdir, "Plots")
-    os.makedirs(plotdir, exist_ok=True)
     save_loc = os.path.join(plotdir,"lollipopplot_25_and_more_samples_Finetuning.svg")
-
+    secondary = os.path.join(plotdir, "secondary_materials")
     dirlowDirect = os.path.join(headdir, "Models","low_data_split","DirectPred")
     dirlowsupervae = os.path.join(headdir, "Models","low_data_split","supervised_vae")
 
@@ -511,6 +510,13 @@ if __name__ == "__main__":
     dir25step10 = os.path.join(resultdir, "geq_25_samples")
     resamplestats = ["/data/local/mgiller/atlas_tissue_representation/Plots/Resample_finetuned_stats.csv",
         "/data/local/mgiller/atlas_tissue_representation/Plots/Resample_from_scratch_stats.csv",]
+
+    os.makedirs(plotdir, exist_ok=True)
+    os.makedirs(os.path.join(plotdir,"low_sample_table"), exist_ok=True)
+    os.makedirs(os.path.join(plotdir,"geq_25_confusion_table"), exist_ok=True)
+    os.makedirs(secondary, exist_ok=True)
+    
+    
     plotpermetric_box(resamplestats,
         plotdir,
         "Performance of Finetuned Models geq 25")
@@ -534,31 +540,28 @@ if __name__ == "__main__":
     lollipop_plot(df,os.path.join(plotdir,"Low_Data_supervae_tissues.svg"))
 
     #confusion Metrics
-    os.makedirs(os.path.join(plotdir,"geq_25_confusion_table"), exist_ok=True)
     confusion_matrices_in_dir(dir25,os.path.join(plotdir,"geq_25_confusion_table"),"geq25confusionmatrices_with_Finetunesamples")
     
     #Lowsampleplots
-    os.makedirs(os.path.join(plotdir,"low_sample_table"), exist_ok=True)
     confusion_matrices_in_dir(dirlowDirect,os.path.join(plotdir,"low_sample_table"),"low_train_sample_DirectPred_cofusion_metrics")
     confusion_matrices_in_dir(dirlowsupervae,os.path.join(plotdir,"low_sample_table"),"low_train_sample_supervised_vae_cofusion_metrics")
-  
-  
+    """
     #Basline_lowsample
-    basleine_performance_visualyser(os.path.join(dirlowDirect),os.path.join(plotdir,"low_sample_table"),"Baseline Performace 108 Samples")
-    basleine_performance_visualyser(os.path.join(dirlowDirect),os.path.join(plotdir,"low_sample_table"),"Baseline Performace 50 Samples")
+    basleine_performance_visualyser(os.path.join(dirlowDirect),os.path.join(secondary,"low_sample_table"),"Baseline Performace 108 Samples")
+    basleine_performance_visualyser(os.path.join(dirlowDirect),os.path.join(secondary,"low_sample_table"),"Baseline Performace 50 Samples")
 
   
     #Kappa Scores  min 25
-    score_visualizer(dir25,os.path.join(plotdir,"min_25_samples_scores.svg"))
+    score_visualizer(dir25,os.path.join(secondary,"min_25_samples_scores.svg"))
 
-    score_visualizer(dir25step10,os.path.join(plotdir,"geq_25_samples_scores.svg"))
+    score_visualizer(dir25step10,os.path.join(secondary,"geq_25_samples_scores.svg"))
 
 
     #kapa score top 9
-    score_visualizer(dirtop9,os.path.join(plotdir,"top_9_stats.svg"))
+    score_visualizer(dirtop9,os.path.join(secondary,"top_9_stats.svg"))
 
     #Kappascore Lowsample gex
-    score_visualizer(dirlowDirect,os.path.join(plotdir,"low_dir_Direct_stats.svg"))
-    score_visualizer(dirlowsupervae,os.path.join(plotdir,"low_dir_supervae_stats.svg"))
-
+    score_visualizer(dirlowDirect,os.path.join(secondary,"low_dir_Direct_stats.svg"))
+    score_visualizer(dirlowsupervae,os.path.join(secondary,"low_dir_supervae_stats.svg"))
+"""
 
