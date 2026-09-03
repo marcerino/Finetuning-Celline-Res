@@ -67,7 +67,7 @@ if __name__ == "__main__":
     plotdir = os.path.join(headdir,"Plots")
     finetuned = os.path.join(headdir,"size_filterd","Resampled")
     from_scratch_save = os.path.join(plotdir,"Resample_from_scratch_stats.csv")
-    finetune_save = os.path.join(plotdir,"Resample_from_scratch_stats.csv")
+    finetune_save = os.path.join(plotdir,"Resample_finetuned_stats.csv")
     
     tdf = totaltable(resdir)
     tdf.write_csv(from_scratch_save)

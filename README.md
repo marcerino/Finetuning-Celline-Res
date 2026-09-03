@@ -54,7 +54,7 @@ The barplot datasets have atleast one of each label in the Dataset.
 
 ![Boxplot of Performance of Finetuned Models over 10 Runs](Plots/Performance%20of%20Finetuned%20Models%20geq%2025balanced_acc_box.png)
 Each Run contains et least 1 sample per label. All Subsets (including the min 1 per label) are chosen by chance. The heldout Sets are subsets of each other (i.e. the heldout Set in 50 Samples of a Run is a subset of the 100 Samples Set in the same Run) in each Run the Runs are independently chosen at random.
-Of note the Horizontal Lines show when the from scratch Traiing overtakes the Finetuning for the first Time.
+Of note the Horizontal Lines show when the mean score from scratch Training overtakes the mean score of Finetuning for the first Time.
 
 
 Confusion Matrices for each finetune step can be found unter in `Plots/geq_25_confusion_table/`

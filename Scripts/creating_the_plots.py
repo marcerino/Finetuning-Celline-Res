@@ -1,5 +1,3 @@
-from this import s
-
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
@@ -475,6 +473,7 @@ def plotpermetric_box(stat_files: list[str], saveloc: str, Title: str = "Perform
         plt.tight_layout()
         plt.savefig(os.path.join(saveloc, Title + metric + "_box.png"), bbox_inches='tight')
         plt.clf()
+        plt.close()
         
 if __name__ == "__main__":
     headdir = os.path.dirname(os.getcwd())
@@ -502,6 +501,9 @@ if __name__ == "__main__":
     df = create_dataframe_over_confusionmetrics(dir25)
     lollipop_plot(df,save_loc)
 
+    
+
+    """
     #onco top 9 Tissues and more flexy
     df = create_dataframe_over_confusionmetrics(dirtop9)
     lollipop_plot(df,os.path.join(plotdir,"top_9_tissues.png"))
@@ -520,7 +522,7 @@ if __name__ == "__main__":
     os.makedirs(os.path.join(plotdir,"low_sample_table"), exist_ok=True)
     confusion_matrices_in_dir(dirlowDirect,os.path.join(plotdir,"low_sample_table"),"low_train_sample_DirectPred_cofusion_metrics")
     confusion_matrices_in_dir(dirlowsupervae,os.path.join(plotdir,"low_sample_table"),"low_train_sample_supervised_vae_cofusion_metrics")
-
+    """
   
   
     """
