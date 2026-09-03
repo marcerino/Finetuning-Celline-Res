@@ -1,3 +1,5 @@
+from pprint import pformat
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
@@ -289,8 +291,8 @@ def plotpermetric(dict_to_path_to_dir: list[str], saveloc: str, Title: str = "Pe
         for file in stat_files
     ]
     concats = pl.concat(dfs, how="vertical")
-    print(concats.head(20))
-    print(concats["title"].unique().sort())
+    #print(concats.head(20))
+    #print(concats["title"].unique().sort())
 
     metrics = ['balanced_acc', 'f1_score', 'kappa']
     for metric in metrics:
@@ -494,13 +496,61 @@ def lineplot(pthtofiles: list[str],saveloc: str):
         plt.savefig(os.path.join(saveloc, m + "_lineplot.svg"))
         plt.clf()
         plt.close()
+def harmonized_confusion_matrix_metrics(pathtoheaddir):
+    def create_dataframe_over_confusionmetrics_local(df,score_name):
+        df = df[["known_label", "predicted_label"]]
     
+        ct = pd.crosstab(
+            pd.Series(df['known_label'], name='Known Label'),
+            pd.Series(df['predicted_label'], name='Predicted Label')
+        )
+        # Normalize the cross-tabulation matrix column-wise
+        ct_normalized = ct.div(ct.sum(axis=0), axis=1)
+        ct_normalized = ct.div(ct.sum(axis=1), axis=0)
+        known_label = df["known_label"].unique().tolist()
+        predicted_label = df["predicted_label"].unique().tolist()
+    
+        true_res = []
+        for label in known_label:
+            if label in predicted_label:
+                true_res.append([label,ct_normalized.loc[label,label]])
+            else:
+                true_res.append([label,0])
+    
+        return pd.DataFrame(true_res,columns = ["label",score_name])
+       
+    wanted_samples = ["0", "50", "100"]
+    allfiles_inpth = []
+    for root, dirs, files in os.walk(pathtoheaddir, topdown=False):
+        for name in files:
+            if os.path.join(root,name).endswith(".predicted_labels.csv") and any([name.startswith(sample) for sample in wanted_samples]):
+                allfiles_inpth.append(os.path.join(root,name))
+
+    samplesize_collections = {sample: [] for sample in wanted_samples}
+    for file in allfiles_inpth:
+        for sample in wanted_samples:
+            if sample in file:
+                samplesize_collections[sample].append(file)
+
+    #concating the files based on samples
+    sampledfs = {}
+    for sample in wanted_samples:
+        sampledfs[sample] = pd.concat([pd.read_csv(file).groupby("sample_id", sort=False, as_index=False).first() for file in samplesize_collections[sample]])
+
+    confusionmetrics = [create_dataframe_over_confusionmetrics_local(df, sample) for sample, df in sampledfs.items()]
+    merged = confusionmetrics[0].merge(confusionmetrics[1], on='label', how='outer').merge(confusionmetrics[2], on='label', how='outer')
+    
+    return merged
+    
+
+
 if __name__ == "__main__":
     headdir = os.path.dirname(os.getcwd())
     datadir = os.path.join(headdir, "Data")
     resultdir = os.path.join(headdir, "size_filterd")
     plotdir = os.path.join(headdir, "Plots")
     save_loc = os.path.join(plotdir,"lollipopplot_25_and_more_samples_Finetuning.svg")
+    loliResample_loc = os.path.join(plotdir, "lollipopplot_resampled.svg")
     secondary = os.path.join(plotdir, "secondary_materials")
     dirlowDirect = os.path.join(headdir, "Models","low_data_split","DirectPred")
     dirlowsupervae = os.path.join(headdir, "Models","low_data_split","supervised_vae")
@@ -516,7 +566,9 @@ if __name__ == "__main__":
     os.makedirs(os.path.join(plotdir,"geq_25_confusion_table"), exist_ok=True)
     os.makedirs(secondary, exist_ok=True)
     
-    
+
+    df = harmonized_confusion_matrix_metrics(os.path.join(resultdir, "Resampled"))
+    lollipop_plot(df,loliResample_loc, Title = "Resampled Same Lable Concordance")
     plotpermetric_box(resamplestats,
         plotdir,
         "Performance of Finetuned Models geq 25")
@@ -525,6 +577,7 @@ if __name__ == "__main__":
 
     #25 and more flexy
     df = create_dataframe_over_confusionmetrics(dir25)
+    print(df.head())
     lollipop_plot(df,save_loc)
 
     lineplot(resamplestats, plotdir)

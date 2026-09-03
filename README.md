@@ -58,7 +58,7 @@ The barplot datasets have atleast one of each label in the Dataset.
 Each Run contains et least 1 sample per label. All Subsets (including the min 1 per label) are chosen by chance. The heldout Sets are subsets of each other (i.e. the heldout Set in 50 Samples of a Run is a subset of the 100 Samples Set in the same Run) in each Run the Runs are independently chosen at random.
 Of note the Horizontal Lines show when the mean score from scratch Training overtakes the mean score of Finetuning for the first Time.
 
-
+![Confusion metics over Resampled Data](Plots/lollipopplot_resampled.svg)
 Confusion Matrices for each finetune step can be found unter in `Plots/geq_25_confusion_table/`
 Note the newly trained model recieved the same Samples to train upon as the Tissue Trained Model for Finetuning.
 
