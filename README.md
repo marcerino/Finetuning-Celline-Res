@@ -85,7 +85,7 @@ Based upon the confusion Metrics, this plot shows the change of \[Label, Label\]
 - **Pretraining on the large tissue-expression dataset reduces the amount of labelled target-domain data required to achieve useful performance. Its advantage is strongest when cell-line training data are scarce, whereas sufficient target-domain data eventually allow de-novo training to reach or exceed the fine-tuned model.**
 
 # TODOS
-- [ ] Label Concordance simplify to ~100 wehere the plateus
+- [x] Label Concordance simplify to ~100 wehere the plateus
 - [x] Datapaths with explaination
 - [x] Addendumns from E-Mail
 
