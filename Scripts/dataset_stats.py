@@ -28,9 +28,9 @@ def summarize_predlable(pth:str):
         localsummary["test_labels"] = dict(df.filter(pl.col("split") == "test").unique("sample_id").group_by("known_label").len().sort(by="known_label").rows())
         localsummary["Nr_test"] = df.filter(pl.col("split") == "test").unique("sample_id").shape[0]
         
-    return localsummary
+    return localsummary           
 
-def create_summary(pthtodir:str, headdir:str,classification_feature:str):
+def create_summary(pthtodir:str, classification_feature:str):
     summary = {}
     pth = pthtodir
     if os.path.exists(os.path.join(pth, "clin.csv")):
@@ -42,7 +42,7 @@ def create_summary(pthtodir:str, headdir:str,classification_feature:str):
         summary[name]["Amount_Features"] = gex.shape[0]
         summary[name]["classification_feature"] = classification_feature
         summary[name][classification_feature] = dict_from_clasifiyer(clin, classification_feature)
-    elif any([file.endswith("predicted_labels.csv") for file in os.listdir(pth)]):
+    if any([file.endswith("predicted_labels.csv") for file in os.listdir(pth)]):
         for file in os.listdir(pth):
             if file.endswith(".predicted_labels.csv"):
                 name = os.path.basename(file).replace(".predicted_labels.csv", "")
@@ -50,22 +50,37 @@ def create_summary(pthtodir:str, headdir:str,classification_feature:str):
                 summary[name]["Name"] = name
                 summary[name]["predicted_labels_path"] = os.path.join(pth, file)
                 summary[name]["Summary"] = summarize_predlable(os.path.join(pth, file))
+    if any([(dict == "train" or dict == "test") for dict in os.listdir(pth)]):
+        for dict in os.listdir(pth):
+            if dict == "train" or dict == "test":
+                name = os.path.basename(pth)
+                summary[name] = {}
+                summary[name]["Name"] = name
+                summary[name]["train"] = create_summary(os.path.join(pth, "train"), classification_feature)
+                summary[name]["test"] = create_summary(os.path.join(pth, "test"), classification_feature)
                 
 
-    yaml.dump(summary, open(os.path.join(pthtodir, "summary.yaml"), "w"))
+    return summary
     # with open(os.path.join(pthtodir, "summary.toml"), "w") as f:
     #     tomlkit.dump(summary, f)
-        
-if __name__ == "__main__":
-    headdir = os.path.dirname(os.getcwd())
-    datadir = os.path.join(headdir, "Data")
-    geq25dir =  os.path.join(datadir,"more_than_25_samples")
-    create_summary(geq25dir, headdir, "uberon_tissue")
-    #125_FinetuneSamples_resample_run_1.predicted_labels.csv
-    create_summary(os.path.join(headdir, "size_filterd", "Resampled", "resample_1"), headdir, "uberon_tissue")
 
-    summarylist = [os.path.join(headdir, "size_filterd", "Resampled", "resample_" + str(i)) for i in range(0, 10)]
-    summarylist += [os.path.join(headdir, "Models", "Resample")]
-    for summarydir in summarylist:
-        create_summary(summarydir, headdir, "uberon_tissue")
-    
+def output_summary( pthtodir,classification_feature):
+    summary = create_summary(pthtodir, classification_feature)
+    with open(os.path.join(pthtodir, "summary.yaml"), "w") as f:
+        yaml.dump(summary, f)
+
+if __name__ == "__main__":
+    # headdir = os.path.dirname(os.getcwd())
+    # datadir = os.path.join(headdir, "Data")
+    # geq25dir =  os.path.join(datadir,"more_than_25_samples")
+    # create_summary(geq25dir, "uberon_tissue")
+    # #125_FinetuneSamples_resample_run_1.predicted_labels.csv
+    # create_summary(os.path.join(headdir, "size_filterd", "Resampled", "resample_1"), "uberon_tissue")
+
+    # summarylist = [os.path.join(headdir, "size_filterd", "Resampled", "resample_" + str(i)) for i in range(0, 10)]
+    # summarylist += [os.path.join(headdir, "Models", "Resample")]
+    # for summarydir in summarylist:
+    #     output_summary(summarydir, "uberon_tissue")
+
+    #output_summary("/data/local/mgiller/single_cell/data/ts_bulk_matched_100", "uberon_tissue")
+    output_summary("/data/local/mgiller/single_cell/data/ts_bulk_matched_small", "uberon_tissue")
