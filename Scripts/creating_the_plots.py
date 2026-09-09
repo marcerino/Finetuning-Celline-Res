@@ -582,9 +582,6 @@ if __name__ == "__main__":
 
     lineplot(resamplestats, plotdir)
 
-    #onco top 9 Tissues and more flexy
-    df = create_dataframe_over_confusionmetrics(dirtop9)
-    lollipop_plot(df,os.path.join(plotdir,"top_9_tissues.svg"))
 
     #Low Sample Training
     df = create_dataframe_over_confusionmetrics(dirlowDirect)
@@ -599,6 +596,11 @@ if __name__ == "__main__":
     confusion_matrices_in_dir(dirlowDirect,os.path.join(plotdir,"low_sample_table"),"low_train_sample_DirectPred_cofusion_metrics")
     confusion_matrices_in_dir(dirlowsupervae,os.path.join(plotdir,"low_sample_table"),"low_train_sample_supervised_vae_cofusion_metrics")
     """
+    #onco top 9 Tissues and more flexy
+    df = create_dataframe_over_confusionmetrics(dirtop9)
+    lollipop_plot(df,os.path.join(plotdir,"top_9_tissues.svg"))
+
+    
     #Basline_lowsample
     basleine_performance_visualyser(os.path.join(dirlowDirect),os.path.join(secondary,"low_sample_table"),"Baseline Performace 108 Samples")
     basleine_performance_visualyser(os.path.join(dirlowDirect),os.path.join(secondary,"low_sample_table"),"Baseline Performace 50 Samples")

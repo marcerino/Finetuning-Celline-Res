@@ -5,6 +5,7 @@ Data/leq_than_60_samples/
 Data/celline-data/
 
 Models/*/*/*.pth
+*.tar
 *.csv
 *.pth
 *.json
