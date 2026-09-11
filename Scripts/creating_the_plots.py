@@ -1,16 +1,14 @@
-from pprint import pformat
-
-import matplotlib.pyplot as plt
-import seaborn as sns
 import os
-import pandas as pd
-import polars as pl
-import numpy as np
 import re
+from pprint import pformat
 
 import matplotlib.cm as cm
 import matplotlib.colors as mcolors
+import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
+import polars as pl
+import seaborn as sns
 
 
 def atomicstats(path: str, Model : str = "Unkonwn",Samples :str = None, Run:str = None)-> pl.DataFrame:
