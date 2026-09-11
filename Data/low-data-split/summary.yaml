@@ -1,0 +1,52 @@
+low-data-split:
+  Name: low-data-split
+  test:
+    test:
+      Amount_Features: 19216
+      Amount_samples: 1054
+      classification_feature: uberon_tissue
+      clin_path: /data/local/mgiller/atlas_tissue_representation/Data/low-data-split/test/clin.csv
+      uberon_tissue:
+        adrenal_gland: 26
+        biliary_tract: 36
+        bladder: 29
+        bone_marrow: 94
+        brain: 91
+        breast: 56
+        colon: 67
+        esophagus: 19
+        head_and_neck: 52
+        kidney: 30
+        liver: 19
+        lung: 178
+        lymphoid: 112
+        ovary: 58
+        pancreas: 47
+        skin: 81
+        soft_tissue: 28
+        uterus: 31
+  train:
+    train:
+      Amount_Features: 19216
+      Amount_samples: 108
+      classification_feature: uberon_tissue
+      clin_path: /data/local/mgiller/atlas_tissue_representation/Data/low-data-split/train/clin.csv
+      uberon_tissue:
+        adrenal_gland: 6
+        biliary_tract: 6
+        bladder: 6
+        bone_marrow: 6
+        brain: 6
+        breast: 6
+        colon: 6
+        esophagus: 6
+        head_and_neck: 6
+        kidney: 6
+        liver: 6
+        lung: 6
+        lymphoid: 6
+        ovary: 6
+        pancreas: 6
+        skin: 6
+        soft_tissue: 6
+        uterus: 6

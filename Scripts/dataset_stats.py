@@ -1,7 +1,6 @@
 import os
 from threading import local
 import polars as pl
-import tomlkit
 import yaml
 
 def usable_amount(pthtodir:str)-> pl.DataFrame:
@@ -33,7 +32,7 @@ def summarize_predlable(pth:str):
 def create_summary(pthtodir:str, classification_feature:str):
     summary = {}
     pth = pthtodir
-    if os.path.exists(os.path.join(pth, "clin.csv")):
+    if os.path.exists(os.path.join(pth, "clin.csv")) and os.path.exists(os.path.join(pth, "gex.csv")):
         name = os.path.basename(pth)
         clin = usable_amount(pth)
         gex = pl.read_csv(os.path.join(pth, "gex.csv"))
@@ -66,8 +65,9 @@ def create_summary(pthtodir:str, classification_feature:str):
 
 def output_summary( pthtodir,classification_feature):
     summary = create_summary(pthtodir, classification_feature)
-    with open(os.path.join(pthtodir, "summary.yaml"), "w") as f:
-        yaml.dump(summary, f)
+    if len(summary) > 0:
+        with open(os.path.join(pthtodir, "summary.yaml"), "w") as f:
+            yaml.dump(summary, f)
 
 if __name__ == "__main__":
     # headdir = os.path.dirname(os.getcwd())
@@ -83,4 +83,6 @@ if __name__ == "__main__":
     #     output_summary(summarydir, "uberon_tissue")
 
     #output_summary("/data/local/mgiller/single_cell/data/ts_bulk_matched_100", "uberon_tissue")
-    output_summary("/data/local/mgiller/single_cell/data/ts_bulk_matched_small", "uberon_tissue")
+    root_dir = "/data/local/mgiller/atlas_tissue_representation"
+    for i in [root for root, _, _ in os.walk(root_dir)]:
+        output_summary(i, "uberon_tissue")

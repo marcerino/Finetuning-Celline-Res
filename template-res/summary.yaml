@@ -1,0 +1,45 @@
+'0':
+  Name: '0'
+  Summary:
+    Nr_test: 482
+    test_labels:
+      bladder: 33
+      blood: 31
+      brain: 52
+      colon: 58
+      head_and_neck: 43
+      lung: 124
+      nerve: 31
+      pancreas: 50
+      skin: 60
+  predicted_labels_path: /data/local/mgiller/atlas_tissue_representation/template-res/0.predicted_labels.csv
+'100':
+  Name: '100'
+  Summary:
+    Nr_test: 382
+    test_labels:
+      bladder: 27
+      blood: 25
+      brain: 38
+      colon: 49
+      head_and_neck: 32
+      lung: 93
+      nerve: 26
+      pancreas: 43
+      skin: 49
+  predicted_labels_path: /data/local/mgiller/atlas_tissue_representation/template-res/100.predicted_labels.csv
+'50':
+  Name: '50'
+  Summary:
+    Nr_test: 382
+    test_labels:
+      bladder: 31
+      blood: 24
+      brain: 44
+      colon: 50
+      head_and_neck: 34
+      lung: 95
+      nerve: 19
+      pancreas: 39
+      skin: 46
+  predicted_labels_path: /data/local/mgiller/atlas_tissue_representation/template-res/50.predicted_labels.csv

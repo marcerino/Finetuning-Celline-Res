@@ -1,0 +1,24 @@
+from_scratch_RandomForest_100:
+  Name: from_scratch_RandomForest_100
+  Summary:
+    Nr_test: 1062
+    test_labels:
+      adrenal_gland: 30
+      biliary_tract: 39
+      bladder: 32
+      bone_marrow: 92
+      brain: 89
+      breast: 57
+      colon: 61
+      esophagus: 22
+      head_and_neck: 53
+      kidney: 34
+      liver: 22
+      lung: 169
+      lymphoid: 112
+      ovary: 59
+      pancreas: 48
+      skin: 77
+      soft_tissue: 32
+      uterus: 34
+  predicted_labels_path: /data/local/mgiller/atlas_tissue_representation/Models/like_finetune_split/RandomForest/from_scratch_RandomForest_100.predicted_labels.csv

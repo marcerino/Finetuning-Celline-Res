@@ -1,0 +1,24 @@
+test:
+  Amount_Features: 19216
+  Amount_samples: 987
+  classification_feature: uberon_tissue
+  clin_path: /data/local/mgiller/atlas_tissue_representation/Data/Resampleruns/resample_3/175_FinetuneSamples_resample_run_3_split/test/clin.csv
+  uberon_tissue:
+    adrenal_gland: 26
+    biliary_tract: 35
+    bladder: 29
+    bone_marrow: 88
+    brain: 82
+    breast: 51
+    colon: 61
+    esophagus: 20
+    head_and_neck: 51
+    kidney: 33
+    liver: 19
+    lung: 154
+    lymphoid: 102
+    ovary: 56
+    pancreas: 44
+    skin: 74
+    soft_tissue: 30
+    uterus: 32

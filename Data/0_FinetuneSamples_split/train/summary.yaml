@@ -1,0 +1,6 @@
+train:
+  Amount_Features: 19215
+  Amount_samples: 0
+  classification_feature: uberon_tissue
+  clin_path: /data/local/mgiller/atlas_tissue_representation/Data/0_FinetuneSamples_split/train/clin.csv
+  uberon_tissue: {}

@@ -1,0 +1,136 @@
+DirectPred108:
+  Name: DirectPred108
+  Summary:
+    Nr_test: 1054
+    Nr_train: 108
+    test_labels:
+      adrenal_gland: 26
+      biliary_tract: 36
+      bladder: 29
+      bone_marrow: 94
+      brain: 91
+      breast: 56
+      colon: 67
+      esophagus: 19
+      head_and_neck: 52
+      kidney: 30
+      liver: 19
+      lung: 178
+      lymphoid: 112
+      ovary: 58
+      pancreas: 47
+      skin: 81
+      soft_tissue: 28
+      uterus: 31
+    train_labels:
+      adrenal_gland: 6
+      biliary_tract: 6
+      bladder: 6
+      bone_marrow: 6
+      brain: 6
+      breast: 6
+      colon: 6
+      esophagus: 6
+      head_and_neck: 6
+      kidney: 6
+      liver: 6
+      lung: 6
+      lymphoid: 6
+      ovary: 6
+      pancreas: 6
+      skin: 6
+      soft_tissue: 6
+      uterus: 6
+  predicted_labels_path: /data/local/mgiller/atlas_tissue_representation/Models/low_data_split/DirectPred/DirectPred108.predicted_labels.csv
+DirectPred108.baseline:
+  Name: DirectPred108.baseline
+  Summary:
+    Nr_test: 1054
+    test_labels:
+      adrenal_gland: 26
+      biliary_tract: 36
+      bladder: 29
+      bone_marrow: 94
+      brain: 91
+      breast: 56
+      colon: 67
+      esophagus: 19
+      head_and_neck: 52
+      kidney: 30
+      liver: 19
+      lung: 178
+      lymphoid: 112
+      ovary: 58
+      pancreas: 47
+      skin: 81
+      soft_tissue: 28
+      uterus: 31
+  predicted_labels_path: /data/local/mgiller/atlas_tissue_representation/Models/low_data_split/DirectPred/DirectPred108.baseline.predicted_labels.csv
+DirectPred50:
+  Name: DirectPred50
+  Summary:
+    Nr_test: 1054
+    Nr_train: 50
+    test_labels:
+      adrenal_gland: 26
+      biliary_tract: 36
+      bladder: 29
+      bone_marrow: 94
+      brain: 91
+      breast: 56
+      colon: 67
+      esophagus: 19
+      head_and_neck: 52
+      kidney: 30
+      liver: 19
+      lung: 178
+      lymphoid: 112
+      ovary: 58
+      pancreas: 47
+      skin: 81
+      soft_tissue: 28
+      uterus: 31
+    train_labels:
+      adrenal_gland: 2
+      biliary_tract: 5
+      bladder: 2
+      bone_marrow: 4
+      brain: 3
+      breast: 5
+      colon: 3
+      esophagus: 3
+      head_and_neck: 2
+      kidney: 3
+      liver: 1
+      lung: 5
+      lymphoid: 2
+      ovary: 3
+      pancreas: 1
+      skin: 2
+      soft_tissue: 3
+      uterus: 1
+  predicted_labels_path: /data/local/mgiller/atlas_tissue_representation/Models/low_data_split/DirectPred/DirectPred50.predicted_labels.csv
+DirectPred50.baseline:
+  Name: DirectPred50.baseline
+  Summary:
+    Nr_test: 1054
+    test_labels:
+      adrenal_gland: 26
+      biliary_tract: 36
+      bladder: 29
+      bone_marrow: 94
+      brain: 91
+      breast: 56
+      colon: 67
+      esophagus: 19
+      head_and_neck: 52
+      kidney: 30
+      liver: 19
+      lung: 178
+      lymphoid: 112
+      ovary: 58
+      pancreas: 47
+      skin: 81
+      soft_tissue: 28
+      uterus: 31
+  predicted_labels_path: /data/local/mgiller/atlas_tissue_representation/Models/low_data_split/DirectPred/DirectPred50.baseline.predicted_labels.csv

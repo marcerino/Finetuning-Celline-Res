@@ -1,0 +1,22 @@
+train:
+  Amount_Features: 19216
+  Amount_samples: 75
+  classification_feature: uberon_tissue
+  clin_path: /data/local/mgiller/atlas_tissue_representation/Data/75_FinetuneSamples_split/train/clin.csv
+  uberon_tissue:
+    adrenal_gland: 5
+    biliary_tract: 2
+    bladder: 3
+    bone_marrow: 8
+    brain: 5
+    breast: 2
+    colon: 6
+    esophagus: 2
+    head_and_neck: 3
+    kidney: 1
+    lung: 10
+    lymphoid: 12
+    ovary: 5
+    pancreas: 2
+    skin: 6
+    uterus: 3

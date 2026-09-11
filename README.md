@@ -19,12 +19,10 @@ Run the prepare / cean scripts:
 2. prepare_clin.csv
 
 Next, finetuning on the celline Data. 
+- Finetuning with flexynesis requires for the labels to share a common vocabulary. The Celline Dataset does not contain  the "uberon_tissue" used in the original training. Therefore we used the labels under OncotreePrimaryDisease and created a mapping from the Disease the celline stems from to the corrosponding Uberon Tissue. The selected mapping can be found in the `Scripts/targetva-mapper.py` Script and in the Addendum.
 - Create a mapping from OncotreePrimaryDisease to the Labels present in Model or None. (`Scripts/targetva-mapper.py`) 
+We chose to select a only the labels that conain at least 25 Features. (`/Scripts/top_x_featureselection.py`) to minimize the effect of random sampling. The Resulting Dataset can be found under the more_than_25_features directory. Summariesed by the summary.yaml file.
 - Filter for Tissues that have at least 25 Features. (`/Scripts/top_x_featureselection.py`)
-- Creating the From scratch datasets based on the samples used for Fineuning via the (`datasplit_same_as_finetune.py`) Script.
-- Running the from_scratch.sh script to train the comparison Models
-- to create the optimal train environmetnt split the dataset vie the `Scripts/splitdataset-for-low-datavolumetest.py` Script.
-- The plots are created via the Script `Scripts/creating_the_plots.py`
 
 Creating the Resample Runs:
 - the script `Scripts/sub_and_resample.py` is used to create the Lists of Samples Used for the Resample Runs. 
@@ -38,6 +36,11 @@ Creating the Resample Runs:
 - the `Scripts/creating_the_plots.py` once again is used to create the Plots.
 
  The from_scratch models recieve exactly the same data for Training and Testing as the pretrained Model for Finetuning and the evaluation mehtodes are the same.
+
+- The plots are created via the Script `Scripts/creating_the_plots.py`
+
+The files `Plots/Resample_finetune_stats.csv` and `Plots/Resample_from_scratch_stats.csv` Contain the collection of their Respective Performance Metrics for the Finetuning Runs and the from scratch Training Runs.
+
 # Observation
 Performance of Model on its original Tissue Sample Dataset. 
 ```
@@ -45,8 +48,6 @@ supervised_vae,uberon_tissue,categorical,balanced_acc,0.9319992766432235
 supervised_vae,uberon_tissue,categorical,f1_score,0.9507821995626191
 supervised_vae,uberon_tissue,categorical,kappa,0.9435743085846471
 ```
-
-The Plots are created via the `Scripts/creating_the_plots.py` Script.
 The Number in #_Finetunesamples indicates the total amount of Finetune samples.
 The barplot datasets have atleast one of each label in the Dataset.
 
@@ -61,16 +62,6 @@ Of note the Horizontal Lines show when the mean score from scratch Training over
 ![Confusion metics over Resampled Data](Plots/lollipopplot_resampled.svg)
 Confusion Matrices for each finetune step can be found unter in `Plots/geq_25_confusion_table/`
 Note the newly trained model recieved the same Samples to train upon as the Tissue Trained Model for Finetuning.
-
-
-While learning from scratch with the most fair spread ( 6 per mapped tissue Type totaling 108) the from scracth the from scratch models acheeved the following performance. 
-```
-balanced_acc,0.57163300301157
-f1_score,0.5760778636835013
-kappa,0.5401853319267591
-```
-
- 
 
 ![Label Prediction performance](Plots/lollipopplot_25_and_more_samples_Finetuning.svg) 
 
@@ -251,5 +242,4 @@ oncotree_Primdisease_to_uberon_revised = {
         "Well-Differentiated Thyroid Cancer": "thyroid",
         None: None,
         }
-
 ```

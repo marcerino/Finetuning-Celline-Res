@@ -1,0 +1,52 @@
+100_FinetuneSamples_resample_run_3_split:
+  Name: 100_FinetuneSamples_resample_run_3_split
+  test:
+    test:
+      Amount_Features: 19216
+      Amount_samples: 1062
+      classification_feature: uberon_tissue
+      clin_path: /data/local/mgiller/atlas_tissue_representation/Data/Resampleruns/resample_3/100_FinetuneSamples_resample_run_3_split/test/clin.csv
+      uberon_tissue:
+        adrenal_gland: 29
+        biliary_tract: 37
+        bladder: 33
+        bone_marrow: 92
+        brain: 89
+        breast: 55
+        colon: 68
+        esophagus: 22
+        head_and_neck: 54
+        kidney: 34
+        liver: 21
+        lung: 169
+        lymphoid: 110
+        ovary: 61
+        pancreas: 44
+        skin: 78
+        soft_tissue: 31
+        uterus: 35
+  train:
+    train:
+      Amount_Features: 19216
+      Amount_samples: 100
+      classification_feature: uberon_tissue
+      clin_path: /data/local/mgiller/atlas_tissue_representation/Data/Resampleruns/resample_3/100_FinetuneSamples_resample_run_3_split/train/clin.csv
+      uberon_tissue:
+        adrenal_gland: 3
+        biliary_tract: 5
+        bladder: 2
+        bone_marrow: 8
+        brain: 8
+        breast: 7
+        colon: 5
+        esophagus: 3
+        head_and_neck: 4
+        kidney: 2
+        liver: 4
+        lung: 15
+        lymphoid: 8
+        ovary: 3
+        pancreas: 9
+        skin: 9
+        soft_tissue: 3
+        uterus: 2
